@@ -13,7 +13,34 @@ Trip.create(date:"1/1/14", rating:"9", comments:"Killed it")
 Trip.create(date:"2/1/14", vessel:"NevrEnuff2", rating:"8", comments:"Really cold but slammed the bluefish...a couple stripers too")
 Trip.create(date:"2/2/14", vessel:"NevrEnuff2", rating:"3", comments:"Weather sucked, the whole boat skunked, and one of the engines blew out so it took 3 hours to get back to port")
 
-User.all.each do |user| user.locations << Location.all end
+# User.all.each do
+# 	|user| user.locations << Location.all
+# end
+
+# @joe = User.find(1)
+# @john = User.find(2)
+# @lonebull = User.find(3)
+
+# @location1 = Location.find(1)
+# @location2 = Location.find(2)
+# @location3 = Location.find(3)
+
+# @trip1 = Trip.find(1)
+# @trip2 = Trip.find(2)
+# @trip3 = Trip.find(3)
+# @trip4 = Trip.find(4)
+
+# @joe.locations << Location.all
+# @john.locations << Location.all
+# @lonebull.locations << Location.all
+
+# @location1.trips << @trip3
+# @location1.trips << @trip4
+# @location2.trips << @trip2
+# @location3.trips << @trip1
+
+
+# User.all.each do |user| user.locations << Location.all end
 
 # User.first.locations << Location.first
 # User.first.locations << Location.last

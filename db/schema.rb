@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140212011032) do
+ActiveRecord::Schema.define(:version => 20140218042620) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "trip_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -28,9 +27,13 @@ ActiveRecord::Schema.define(:version => 20140212011032) do
     t.decimal  "rating",      :precision => 2, :scale => 1
     t.text     "comments"
     t.integer  "location_id"
-    t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "trips_users", :id => false, :force => true do |t|
+    t.integer "trip_id"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -45,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20140212011032) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.integer  "location_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end

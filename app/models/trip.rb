@@ -1,6 +1,6 @@
 class Trip < ActiveRecord::Base
-  attr_accessible :date, :vessel, :captain, :rating, :comments
+	attr_accessible :date, :vessel, :captain, :rating, :comments
 
-  belongs_to :location
-  belongs_to :user
+	belongs_to :locations
+	belongs_to :users
 end
