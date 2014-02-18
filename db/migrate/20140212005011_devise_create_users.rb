@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # My Additions
       t.string :name
+      t.integer :location_id
       t.timestamps
     end
 

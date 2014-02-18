@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20140212011032) do
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.integer  "trip_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20140212011032) do
     t.decimal  "rating",      :precision => 2, :scale => 1
     t.text     "comments"
     t.integer  "location_id"
+    t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20140212011032) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.integer  "location_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
