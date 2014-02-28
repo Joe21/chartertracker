@@ -4,4 +4,14 @@ class LocationsController < ApplicationController
 	def index
 	end
 
+	def new
+		@new_user_location = Location.new
+	end
+
+	def create
+		new_user_location = Location.create(params[:location])
+	end
+
+
+
 end

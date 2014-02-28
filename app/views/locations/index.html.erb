@@ -1,6 +1,10 @@
+<h3>Locations Menu</h3>
+
 <div>
+	<div>Create a new location / port of departure <%= button_to "click", new_user_location_path %></div>
+	<br>
 	<% current_user.locations.each do |location| %>
-		<%= link_to location.name, user_locations_path(location) %>
+		<%= location.name %> <%= button_to "View Trips" %> <%= button_to "Edit"%> <%= button_to "Delete" %>
 		<br>
 	<% end %>
 </div>

@@ -4,10 +4,12 @@ Chartertracker::Application.routes.draw do
 	  resources :locations
 	end
 
-  root :to => "home#home"
+  root :to => "home#home"  
 
 ##### [Rake Routes] #####
 
+### Devise controller/actions ###
+#
 #         new_user_session GET    /users/sign_in(.:format)                     devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)                     devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)                    devise/sessions#destroy
@@ -21,6 +23,9 @@ Chartertracker::Application.routes.draw do
 #   edit_user_registration GET    /users/edit(.:format)                        devise/registrations#edit
 #                          PUT    /users(.:format)                             devise/registrations#update
 #                          DELETE /users(.:format)                             devise/registrations#destroy
+
+### My controller/actions ###
+#
 #           user_locations GET    /users/:user_id/locations(.:format)          locations#index
 #                          POST   /users/:user_id/locations(.:format)          locations#create
 #        new_user_location GET    /users/:user_id/locations/new(.:format)      locations#new
@@ -35,5 +40,6 @@ Chartertracker::Application.routes.draw do
 #                     user GET    /users/:id(.:format)                         users#show
 #                          PUT    /users/:id(.:format)                         users#update
 #                          DELETE /users/:id(.:format)                         users#destroy
-#                     root        /                                            home#home
+#                     root        /                                            home#home                                          home#home
+
 end
