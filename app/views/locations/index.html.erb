@@ -1,1 +1,6 @@
-<h1>Sup</h1>
+<div>
+	<% current_user.locations.each do |location| %>
+		<%= location.name %>
+		<br>
+	<% end %>
+</div>
