@@ -1,6 +1,6 @@
 <div>
 	<% current_user.locations.each do |location| %>
-		<%= location.name %>
+		<%= link_to location.name, location_path(location) %>
 		<br>
 	<% end %>
 </div>
