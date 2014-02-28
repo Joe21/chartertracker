@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, only: [:home]
+	before_filter :authenticate_user!, only: [:home] 
 
 	def home
 		# [VALIDATION] Check's for a new user's empty locations and seeds with all locations in the database.  
