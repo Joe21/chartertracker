@@ -1,1 +1,5 @@
-sup!
+<h1>Welcome to Charter Tracker <%= current_user.name %>!</h1>
+
+<div>
+	<%= link_to "Locations Menu", user_locations_path(current_user.id) %>
+</div>
