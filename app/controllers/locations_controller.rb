@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
 	end
 
 	def new
-		@new_user_location = Location.new
+		@location = Location.new
 	end
 
 	def create

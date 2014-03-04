@@ -1,5 +1,5 @@
-<%= form_for(@location, :url => new_user_location_path, :method => (:post => user_locations_path) do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.submit %>
+<%= form_for @location, url: new_user_location_path, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
 <% end %>
