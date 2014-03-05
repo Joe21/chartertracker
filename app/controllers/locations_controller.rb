@@ -10,7 +10,6 @@ class LocationsController < ApplicationController
 
 	def create
 		new_user_location = Location.create(params[:location])
-
 		# redirect_to user_locations_path(current_user.id)
 	end
 

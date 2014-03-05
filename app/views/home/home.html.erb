@@ -1,5 +1,15 @@
 <h1>Welcome to Charter Tracker <%= current_user.name %>!</h1>
 
+<% if current_user.admin == true %>
+	<h2>Admin Mode Activated!</h2>
+	<div>
+		There are currently <%= @all_users_count %> registered users.
+		<br>
+		There are currently <%= @pending_locations_count %> pending locations.
+	</div>
+<% end %>
+
+
 <div id="home-menu">
 	<%= link_to "Locations Menu", locations_path %>
 

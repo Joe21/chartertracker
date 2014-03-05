@@ -1,7 +1,7 @@
 <h3>Locations Menu</h3>
 
 <div>
-	<div>Create a new location / port of departure for admin approval<%= button_to "click" %></div>
+	<div>Create a new location for admin approval<%= button_to "click" %></div>
 	<br>
 	<% current_user.locations.each do |location| %>
 		<%= location.name %> <%= button_to "View Trips" %> <%= button_to "Edit"%> <%= button_to "Delete" %>
