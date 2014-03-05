@@ -1,5 +1,9 @@
 <h1>Welcome to Charter Tracker <%= current_user.name %>!</h1>
 
-<div>
-	<%= link_to "Locations Menu", user_locations_path(current_user.id) %>
+<div id="home-menu">
+	<%= link_to "Locations Menu", locations_path %>
+
+	<%= link_to "Trips Menu" %>
+
+	<%= link_to "Track Menu" %>
 </div>

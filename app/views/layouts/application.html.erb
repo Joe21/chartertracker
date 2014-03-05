@@ -7,13 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- 
+	<% if user_signed_in? %>
+		<div id='nav-menu'>
+			<%= link_to 'Home', root_path %>
+			<%= link_to 'Logout', destroy_user_session_path %>
+		</div>
 
-	<% if notice %>
+	<% else %>	
+			<%= link_to 'Login',  new_user_session_path %>
+			<%= link_to 'Sign up', new_user_registration_path, id: 'signup' %>
+	<% end %>
+ -->
+<!-- 	<% if notice %>
 	  <p class="alert alert-notice"><%= notice %></p>
 	<% end %>
 	<% if alert %>
 	  <p class="alert alert-error"><%= alert %></p>
-	<% end %>
+	<% end %> -->
 
 <%= yield %>
 
