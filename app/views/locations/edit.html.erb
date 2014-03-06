@@ -1,7 +1,3 @@
-<%= form_for @location, as: :post, url: locations_path do |f| %>
-	<%= f.label :name %>
-	<%= f.textfield :name %>
-	<%= f.submit %>
-<% end %>
+<%= render partial: "form", locals: {location: @location} %>
 
 <%= link_to 'Home', root_path %>

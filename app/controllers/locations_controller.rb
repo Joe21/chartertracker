@@ -10,7 +10,7 @@ class LocationsController < ApplicationController
 
 	def create
 		location = Location.create(params[:location])
-		redirect_to location_path
+		redirect_to locations_path
 	end
 
 	def edit
@@ -23,4 +23,14 @@ class LocationsController < ApplicationController
 
 		redirect_to locations_path
 	end
+
+	def remove
+		remove_this_location = Location.find(params[:id])
+		if current_user.locations.include?(remove_this_location)
+			current_user.locations.delete(remove_this_location)
+		end
+
+		redirect_to locations_path
+	end
+	
 end
