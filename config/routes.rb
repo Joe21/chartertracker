@@ -1,12 +1,12 @@
 Chartertracker::Application.routes.draw do  
   devise_for :users  
 
-  resources :locations, :trips
+  resources :locations
+  resources :trips
 
   root :to => "home#home"  
 
-##### [Rake Routes] #####
-
+########## [Rake Routes] ##########
 ### Devise controller/actions ###
 #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)       devise/sessions#create

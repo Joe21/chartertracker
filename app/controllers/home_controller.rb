@@ -3,9 +3,8 @@ class HomeController < ApplicationController
 
 	def home
 		# [Validation: This process checks for new users, if so, all verified locations are linked to their account]
-		if current_user.locations == 0
-			current_user.locations << Location.where(verified= true)
-			current_user.locations.save
+		if current_user.locations.count == 0
+			current_user.locations << Location.where(verified: true)
 		end
 
 		if current_user.admin == true

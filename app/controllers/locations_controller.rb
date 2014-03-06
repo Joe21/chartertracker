@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-	before_filter :authenticate_user!, only: [:index, :new, :create]
+	before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update]
 
 	def index
 	end
@@ -9,10 +9,18 @@ class LocationsController < ApplicationController
 	end
 
 	def create
-		new_user_location = Location.create(params[:location])
-		# redirect_to user_locations_path(current_user.id)
+		location = Location.create(params[:location])
+		redirect_to location_path
 	end
 
+	def edit
+		@location = Location.find(params[:id])
+	end
 
+	def update 
+		location = Location.find(params[:id])
+		location.update_attributes(params[:location])
 
+		redirect_to locations_path
+	end
 end
