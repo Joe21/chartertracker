@@ -4,6 +4,9 @@ Chartertracker::Application.routes.draw do
   resources :locations
   resources :trips
 
+	post 'locations/:id/add' => 'locations#add_to_my_location', :as => 'add_to_my_location'
+  post 'locations/:id/remove' => 'locations#remove_from_my_location', :as => 'remove_from_my_location'
+  
   root :to => "home#home"  
 
 ########## [Rake Routes] ##########
@@ -30,6 +33,8 @@ Chartertracker::Application.routes.draw do
 #                 location GET    /locations/:id(.:format)       locations#show
 #                          PUT    /locations/:id(.:format)       locations#update
 #                          DELETE /locations/:id(.:format)       locations#destroy
+#       add_to_my_location POST   /locations/:id/add(.:format)    locations#add_to_my_location
+#  remove_from_my_location POST   /locations/:id/remove(.:format) locations#remove_from_my_location
 #                    trips GET    /trips(.:format)               trips#index
 #                          POST   /trips(.:format)               trips#create
 #                 new_trip GET    /trips/new(.:format)           trips#new
