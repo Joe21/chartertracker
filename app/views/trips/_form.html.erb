@@ -1,4 +1,4 @@
-<%= form_for trip do |f| %>
+<%= form_for trip, location_id: @location_id do |f| %>
 	<div>
 		<%= f.label :date %>
 		<%= f.text_field :date %>
@@ -16,8 +16,6 @@
 		<br>
 		<%= f.text_area :comments %>
 		<br>
-		<%= f.label :location_id %>
-		<%= f.text_field :location_id, :value => params[:id], disabled: true %>
 		<%= f.submit %>
 	</div>
 

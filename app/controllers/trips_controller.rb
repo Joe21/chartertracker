@@ -12,14 +12,13 @@ class TripsController < ApplicationController
 
 	def new
 		@trip = Trip.new(date:Time.now.strftime("%m/%d/%Y"))
+		@location_id = params[:id].to_i
 	end
 
 	def create
-		location = Location.find(params[:id].to_i)
 		trip = Trip.create(params[:trip])
 
-		current_user.trips << trip
-		location.trips << trip
+		current_user.Location.find(params[:location_id]).trips << trip
 
 		redirect_to trips_path
 	end
