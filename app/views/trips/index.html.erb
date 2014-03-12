@@ -5,9 +5,9 @@
 		<head>Trips By Location</head>
 
 		<% current_user.locations.each do |location| %>
-			<li><%= location.name %><br>
+			<li><%= location.name %> <%= link_to "Add trip", new_trip_path(location.id) %>
+				<br>
 				Total Number of Trips: <%= location.trips.count %>
-				
 				<% if location.trips.count > 0 %>
 					<% location.trips.each do |trip| %>
 						<ul>
@@ -17,6 +17,7 @@
 				<% end %>
 			
 			</li>
+			<br>
 		
 		<% end %>
 	</ul>

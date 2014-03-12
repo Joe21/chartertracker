@@ -1,1 +1,24 @@
-_form.html.erb
+<%= form_for trip do |f| %>
+	<div>
+		<%= f.label :date %>
+		<%= f.text_field :date %>
+		<br>
+		<%= f.label :vessel %>
+		<%= f.text_field :vessel %>
+		<br>
+		<%= f.label :captain %>
+		<%= f.text_field :captain %>
+		<br>
+		<%= f.label :rating %>
+		<%= f.select :rating, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"]] %>
+		<br>
+		<%= f.label :comments %>
+		<br>
+		<%= f.text_area :comments %>
+		<br>
+		<%= f.label :location_id %>
+		<%= f.text_field :location_id, :value => params[:id], disabled: true %>
+		<%= f.submit %>
+	</div>
+
+<% end %>
