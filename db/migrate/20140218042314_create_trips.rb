@@ -7,6 +7,7 @@ class CreateTrips < ActiveRecord::Migration
     	t.decimal :rating, precision: 2, scale: 1
     	t.text :comments
     	t.integer :location_id
+      t.integer :user_id
 
       t.timestamps
     end

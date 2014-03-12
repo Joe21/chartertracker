@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20140305010613) do
     t.decimal  "rating",      :precision => 2, :scale => 1
     t.text     "comments"
     t.integer  "location_id"
+    t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
   end
