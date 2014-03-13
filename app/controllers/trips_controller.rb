@@ -2,6 +2,7 @@ class TripsController < ApplicationController
 	before_filter :authenticate_user!, only: [:index]
 
 	def index
+		@all_my_trips = current_user.trips
 	end
 
 	def index_by_location
