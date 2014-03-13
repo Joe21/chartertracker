@@ -52,7 +52,7 @@ describe User do
 	end
 
 	describe "#trips_by_location" do
-		it "should return an array of the user's trips by location" do
+		it "should return an array of the user's trips by their first location" do
 			@joe.locations.first.trips eq([@trip1])
 			@john.locations.first.trips eq([@trip1, @trip2])
 		end

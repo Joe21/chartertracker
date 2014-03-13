@@ -7,16 +7,16 @@
 			<li><%= location.name %> <%= link_to "Add trip", new_trip_path(location.id) %>
 				<br>
 				Total Number of Trips: <%= location.trips.count %>
-			</li>
-<!-- 				<% if location.trips.count > 0 %>
-					<% location.trips.each do |trip| %>
+				<br>
+				<% if location.trips.count > 0 %>
+					<% current_user.locations.find(location.id).trips.each do |trip| %>
 						<ul>
-							<li><%= trip.date %></li>
+							<li>Trip Date: <%= trip.date %></li>
 						</ul>
 					<% end %>
 				<% end %>
-			<br> -->
-		
+			<br>
+			</li>
 		<% end %>
 	</ul>
 
