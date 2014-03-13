@@ -1,6 +1,8 @@
-<%= render partial: "form", locals: {trip: @trip, location_id: @location_id} %>
+<%= render partial: "form", locals: {trip: @trip, :location_id => @bla} %>
 
 <%= link_to 'Home', root_path %>
 
 
 <h1><%= :location_id %></h1>
+<h1><%= :location_id.class %></h1>
+<h1><%= @bla %></h1>
