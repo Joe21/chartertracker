@@ -13,34 +13,20 @@ class TripsController < ApplicationController
 
 	def new
 		@trip = Trip.new(date:Time.now.strftime("%m/%d/%Y"))
-		@bla = Hash.new
-		@bla[1]= params[:id]
+		@location_id = Hash.new
 
-		# @location = Location.find(params[:id].to_i)
-
-		# puts "----------------------------"
-		# puts @location
-		# puts @location.class
-		# puts "----------------------------"
-		# puts "----------------------------"
+		# Set location_id hash w/ the key of 1 value the location id passed from params
+		@location_id[1]= params[:id]
 
 	end
 
 	def create
 
-		# puts "----------------------------"
-		# puts params[:location]
-		# puts params[:location].class
-		# puts params[:location_id]
-		# puts params[:location_id].class
-		# puts "----------------------------"
-		# puts "----------------------------"
-
 		# Saves the new instance of trip into the DB.
 		trip = Trip.create(params[:trip])
 
 		# Saves trip to the location (This function does not save to the user's trip, but rather the location.)
-		current_user.locations.find(params[:location]).trips << trip
+		current_user.locations.find(params[:location_id]).trips << trip
 
 		# Saves trip to the user's trips.
 		current_user.trips << trip
