@@ -1,7 +1,7 @@
 <h1>Locations Menu</h1>
 
 <div>
-	<div>Create a new location for admin approval <%= link_to "click", new_location_path %>
+	<div>Submit a new location for admin approval <%= link_to "click", new_location_path %>
 	</div>
 	<br>
 
@@ -18,7 +18,7 @@
 	<br>
 	<h3>My Locations</h3>
 	<% current_user.locations.each do |location| %>
-		<%= location.name %> <%= link_to "View Trips" %> <%= link_to "Delete", remove_from_my_location_path(location.id), :method => :post %>
+		<%= location.name %> <%= link_to "Delete", remove_from_my_location_path(location.id), :method => :post %>
 		<br>
 	<% end %>
 </div>

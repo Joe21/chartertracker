@@ -16,7 +16,11 @@
 		<br>
 		<%= f.text_area :comments %>
 		<br>
-		<input type="hidden" id="location_id" name="location_id" value=<%= @location_id[1] %> />
+
+		<% if @location_id %>
+			<input type="hidden" id="location_id" name="location_id" value=<%= @location_id[1] %> />
+		<% end %>
+
 		<%= f.submit %>
 	</div>
 
