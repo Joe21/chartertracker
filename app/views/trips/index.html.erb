@@ -9,9 +9,9 @@
 				Total Number of Trips: <%= location.trips.count %>
 				<br>
 				<% if location.trips.count > 0 %>
-					<% current_user.locations.find(location.id).trips.each do |trip| %>
+					<% (location.trips & current_user.trips).each do |trip| %>
 						<ul>
-							<li>Trip Date: <%= trip.date %> | <%= link_to "Edit Trip", edit_trip_path(trip.id) %> | <%= link_to "Delete Trip", delete_trip_path(trip.id), data: {location_id: current_user.locations.find(location.id).id}, method: "post"  %>
+							<li>Trip Date: <%= trip.date %> | <%= link_to "Edit Trip", edit_trip_path(trip.id) %> | <%= link_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
 							</li>
 						</ul>
 					<% end %>

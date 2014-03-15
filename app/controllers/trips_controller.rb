@@ -35,15 +35,18 @@ class TripsController < ApplicationController
 	end
 
 	def destroy
-		# trip = Trip.find(params[:id])
+		trip = Trip.find(params[:id])
+		location_name = trip.location.name
+		location_id = trip.location.id
 
 		puts "-----------------------"
 		puts "Response"
-		puts params[:location_id].to_i
+		puts params[:id]
+		puts location_name
+		puts location_id
 		puts "-----------------------"
 		puts "-----------------------"
 
-		# current_user.locations.find(params[:location][:id])
 
 
 		# trip.destroy
