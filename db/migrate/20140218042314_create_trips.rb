@@ -4,7 +4,7 @@ class CreateTrips < ActiveRecord::Migration
     	t.string :date
     	t.string :vessel
     	t.string :captain
-    	t.decimal :rating, precision: 2, scale: 1
+    	t.integer :rating
     	t.text :comments
     	t.integer :location_id
       t.integer :user_id
