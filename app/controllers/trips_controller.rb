@@ -2,6 +2,7 @@ class TripsController < ApplicationController
 	before_filter :authenticate_user!, only: [:index]
 
 	def index
+		@locations = Location.all
 	end
 
 	def new
@@ -20,6 +21,10 @@ class TripsController < ApplicationController
 		# Saves trip to the user's trips.
 		current_user.trips << trip
 
+		# Saves trip to the locations's trips.
+		location = Location.find(params[:location_id])
+		location.trips << trip
+
 		redirect_to trips_path
 	end
 
@@ -36,20 +41,8 @@ class TripsController < ApplicationController
 
 	def destroy
 		trip = Trip.find(params[:id])
-		location_name = trip.location.name
-		location_id = trip.location.id
+		trip.destroy
 
-		puts "-----------------------"
-		puts "Response"
-		puts params[:id]
-		puts location_name
-		puts location_id
-		puts "-----------------------"
-		puts "-----------------------"
-
-
-
-		# trip.destroy
 		redirect_to trips_path
 	end
 
