@@ -1,4 +1,22 @@
-body {
-	color: #000000;
+#login_bar {
+	border: 10px solid white;
+	text-align: left;
 }
 
+body {
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%
+}
+
+.container {
+	background-color: white;
+	opacity: .7;
+
+}
+
+#main_view_container {
+	margin: 5px;
+}

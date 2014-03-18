@@ -51,9 +51,9 @@
 /* #Basic Styles
 ================================================== */
 	body {
-		background: #fff;
+		background: #FFFFFF;
 		font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		color: #444;
+		color: #000000;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
  }
@@ -218,7 +218,7 @@
 	input[type="email"],
 	textarea,
 	select {
-		border: 1px solid #ccc;
+		border: 1px solid #000000;
 		padding: 6px 4px;
 		outline: none;
 		-moz-border-radius: 2px;
@@ -231,7 +231,7 @@
 		max-width: 100%;
 		display: block;
 		margin-bottom: 20px;
-		background: #fff; }
+		background: #FFE87C; }
 	select {
 		padding: 0; }
 	input[type="text"]:focus,
