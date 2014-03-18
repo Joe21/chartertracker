@@ -2,12 +2,12 @@ User.delete_all
 Location.delete_all
 Trip.delete_all
 
-# User.create(email:"joe@joe.com", password:"password", name:"Joe")
-# User.create(email:"john@john.com", password:"password", name:"John")
-# User.create(email:"lonebull@lonebull.com", password:"password", name:"Lonebull")
+User.create(email:"joe@joe.com", password:"password", name:"Joe")
+User.create(email:"john@john.com", password:"password", name:"John")
+User.create(email:"lonebull@lonebull.com", password:"password", name:"Lonebull")
 Location.create(name:"World's Fair Marina", verified: true)
 Location.create(name:"Freeport", verified: true)
-# Location.create(name:"Captree", verified: true)
+Location.create(name:"Captree", verified: true)
 # Trip.create(date:"12/10/13", vessel:"Laura Lee", rating:"8", comments:"Pretty good trip. Hit a lot of seabass")
 # Trip.create(date:"1/1/14", rating:"9", comments:"Killed it")
 # Trip.create(date:"2/1/14", vessel:"NevrEnuff2", rating:"8", comments:"Really cold but slammed the bluefish...a couple stripers too")

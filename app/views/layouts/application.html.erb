@@ -7,18 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if notice %>  
-    <p class="alert alert-notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-  <% end %>
-
   <div id="login_bar">
     <% if user_signed_in? %>
       <strong><%= current_user.email %></strong> |
       <%= link_to "Home", root_path %> |
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
     <% else %>
@@ -26,9 +19,20 @@
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
+
   </div>
 
   <div class="container">
+
+    <div id="login_alert_container">
+      <% if notice %>  
+        <p class="alert alert-notice"><strong><%= notice %></strong></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><strong><%= alert %></strong></p>
+      <% end %>
+    </div>
+
     <div id="main_view_container" class="sixteen columns">
       <%= yield %>
     </div>

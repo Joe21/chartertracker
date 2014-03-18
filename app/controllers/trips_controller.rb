@@ -6,7 +6,7 @@ class TripsController < ApplicationController
 	end
 
 	def new
-		@trip = Trip.new(date:Time.now.strftime("%m/%d/%Y"))
+		@trip = Trip.new(name: Time.now.strftime("%m/%d/%Y"), date: Time.now.strftime("%m/%d/%Y"))
 
 		# Set location_id hash w/ the key of 1 value the location id passed from params
 		@location_id = Hash.new

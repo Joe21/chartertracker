@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(:version => 20140305010613) do
   end
 
   create_table "trips", :force => true do |t|
-    t.string   "date"
+    t.string   "name"
+    t.datetime "date"
     t.string   "vessel"
     t.string   "captain"
     t.integer  "rating"

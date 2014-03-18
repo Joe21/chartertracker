@@ -12,7 +12,7 @@
 				<% if (location.trips & current_user.trips).count > 0 %>
 					<% (location.trips & current_user.trips).each do |trip| %>
 						<ul>
-							<li>Trip Date: <%= trip.date %> | <%= link_to "Edit Trip", edit_trip_path(trip.id) %> | <%= link_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
+							<li>Trip Name: <%= trip.name %> | <%= link_to "Edit Trip", edit_trip_path(trip.id) %> | <%= link_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
 							</li>
 						</ul>
 					<% end %>

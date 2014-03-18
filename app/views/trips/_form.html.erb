@@ -1,7 +1,10 @@
 <%= form_for trip do |f| %>
 	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+		<br>
 		<%= f.label :date %>
-		<%= f.text_field :date %>
+		<%= f.date_select :date %>
 		<br>
 		<%= f.label :vessel %>
 		<%= f.text_field :vessel %>
