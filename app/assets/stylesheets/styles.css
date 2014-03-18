@@ -1,6 +1,11 @@
 #login_bar {
-	border: 10px solid white;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #000000;
+	height: 20px;
+	margin: auto;
+	padding-left: 5px;
 	text-align: left;
+	width: 100%;
 }
 
 body {
@@ -12,11 +17,11 @@ body {
 }
 
 .container {
-	background-color: white;
-	opacity: .7;
-
 }
 
 #main_view_container {
-	margin: 5px;
+	background-color: white;
+	margin: auto;
+	opacity: .7;
+	padding: 5px;
 }

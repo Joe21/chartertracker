@@ -4,8 +4,8 @@ Chartertracker::Application.routes.draw do
 	post 'locations/:id/add' => 'locations#add_to_my_location', :as => 'add_to_my_location'
   post 'locations/:id/remove' => 'locations#remove_from_my_location', :as => 'remove_from_my_location'
   get 'locations/:id/trips/new' => 'trips#new', :as => 'new_trip'
-
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
+  get 'tracker' => 'tracker#index', :as => 'tracker'
 
   resources :locations
   resources :trips

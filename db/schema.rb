@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(:version => 20140305010613) do
     t.string   "date"
     t.string   "vessel"
     t.string   "captain"
-    t.decimal  "rating",      :precision => 2, :scale => 1
+    t.integer  "rating"
     t.text     "comments"
     t.integer  "location_id"
     t.integer  "user_id"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-	before_filter :authenticate_user!, only: [:index]
+	before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
 
 	def index
 		@locations = Location.all
