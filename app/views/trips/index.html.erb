@@ -12,7 +12,27 @@
 				<% if (location.trips & current_user.trips).count > 0 %>
 					<% (location.trips & current_user.trips).each do |trip| %>
 						<ul>
-							<li>Trip Name: <%= trip.name %> | <%= link_to "Edit Trip", edit_trip_path(trip.id) %> | <%= link_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
+							<li><strong>Trip Name: </strong> <%= trip.name %>
+								<br>
+								<strong>Vessel: </strong>
+									<% if trip.vessel.length == 0 %>
+										N/A
+									<% else %>
+										<%= trip.vessel %>
+									<% end %>
+								<br>
+								<strong>Captain: </strong>
+									<% if trip.captain.length == 0 %>
+										N/A
+									<% else %>
+										<%= trip.captain %>
+									<% end %>
+								<br>
+								<strong>Rating: </strong><%= trip.rating %>
+								<br>
+								<strong>Trip Date: </strong><%= trip.date.strftime("%m/%d/%Y") %>
+								<%= button_to "Edit Trip", edit_trip_path(trip.id), method: "get" %>
+								<%= button_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
 							</li>
 						</ul>
 					<% end %>

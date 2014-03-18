@@ -8,10 +8,13 @@ User.create(email:"lonebull@lonebull.com", password:"password", name:"Lonebull")
 Location.create(name:"World's Fair Marina", verified: true)
 Location.create(name:"Freeport", verified: true)
 Location.create(name:"Captree", verified: true)
-# Trip.create(date:"12/10/13", vessel:"Laura Lee", rating:"8", comments:"Pretty good trip. Hit a lot of seabass")
-# Trip.create(date:"1/1/14", rating:"9", comments:"Killed it")
-# Trip.create(date:"2/1/14", vessel:"NevrEnuff2", rating:"8", comments:"Really cold but slammed the bluefish...a couple stripers too")
-# Trip.create(date:"2/2/14", vessel:"NevrEnuff2", rating:"3", comments:"Weather sucked, the whole boat skunked, and one of the engines blew out so it took 3 hours to get back to port")
+Location.create(name: "Montauk Marine Basin", verified: true)
+Location.create(name: "Point Lookout", vereified: true)
+Location.create(name: "Sheepshead Bay", verified: true)
+Trip.create(name: "test1", date:"12/10/13", vessel:"Laura Lee", rating:"8", comments:"Pretty good trip. Hit a lot of seabass")
+Trip.create(name: "test2", date:"1/1/14", rating:"9", comments:"Killed it")
+Trip.create(name: "test3", date:"2/1/14", vessel:"NevrEnuff2", rating:"8", comments:"Really cold but slammed the bluefish...a couple stripers too")
+Trip.create(name: "test4", date:"2/2/14", vessel:"NevrEnuff2", rating:"3", comments:"Weather sucked, the whole boat skunked, and one of the engines blew out so it took 3 hours to get back to port")
 
 # Seed Testing
 # User.all.each do |user| user.locations << Location.all end
