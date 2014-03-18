@@ -3,7 +3,6 @@
 <head>
   <title>Chartertracker</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,7 +18,6 @@
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
-
   </div>
 
   <div class="container">
@@ -39,4 +37,6 @@
   </div>
 
 </body>
+<%= javascript_include_tag "application" %>
 </html>
+

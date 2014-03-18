@@ -4,7 +4,7 @@
 <div>
 	<ul>
 		<head>Trips By Location</head>
-		<% current_user.locations.each do |location| %>
+		<% @my_locations.each do |location| %>
 			<li><%= location.name %> <%= link_to "Add Trip", new_trip_path(location.id) %>
 				<br>
 				Total Number of Trips: <%= (location.trips & current_user.trips).count %>

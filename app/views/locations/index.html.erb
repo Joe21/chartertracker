@@ -17,7 +17,7 @@
 
 	<br>
 	<h3>My Locations</h3>
-	<% current_user.locations.each do |location| %>
+	<% @my_locations.each do |location| %>
 		<%= location.name %> <%= link_to "Delete", remove_from_my_location_path(location.id), :method => :post %>
 		<br>
 	<% end %>

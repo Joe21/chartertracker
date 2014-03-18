@@ -2,7 +2,8 @@ class TripsController < ApplicationController
 	before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
 
 	def index
-		@locations = Location.all
+		user = User.find(current_user)
+		@my_locations = user.locations.sort! { |a,b| a.name <=> b.name }
 	end
 
 	def new

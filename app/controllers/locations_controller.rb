@@ -4,6 +4,10 @@ class LocationsController < ApplicationController
 	def index
 		# Set a variable for all approved locations that a user can add.
 		@approved_locations = Location.where(verified: true) - current_user.locations
+	
+		# Current user locations sorted alphabetically
+		user = User.find(current_user)
+		@my_locations = user.locations.sort! { |a,b| a.name <=> b.name }
 	end
 
 	def new
