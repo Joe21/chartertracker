@@ -4,36 +4,53 @@ var data = [
   {"name": "World's Fair Marina", "rating": 3}
 ];
 
-var width = 960,
-  height = 500;
+var margin = { top: 20, right: 30, bottom: 30, left: 40},
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
   .rangeRoundBands([0, width], .1)
+  //  Should be called back in function upon complete download of json object
   .domain(data.map(function(d) { return d.name; }));
 
 var y = d3.scale.linear()
   .range([height, 0])
+  //  Should be called back in function upon complete download of json object
   .domain([0, d3.max(data, function (d) { return d.rating; })]);
 
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom");
+
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left");
+
 var chart = d3.select(".chart")
-  .attr("width", width)
-  .attr("height", height);
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var bar = chart.selectAll("g")
+// Insert json d3 function
+
+chart.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+chart.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
+
+chart.selectAll(".bar")
   .data(data)
-  .enter().append("g")
-  .attr("transform", function(d) { return "translate(" + x(d.name) + ",0)"; });
-
-bar.append("rect")
-  .attr("y", function(d) { return y(d.rating); })
-  .attr("height", function(d) { return height - y(d.rating); })
-  .attr("width", x.rangeBand());
-
-bar.append("text")
-  .attr("x", x.rangeBand() / 2)
-  .attr("y", function(d) { return y(d.rating) + 3; })
-  .attr("dy", ".75em")
-  .text(function(d) { return d.rating; });
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return x(d.name); })
+    .attr("y", function(d) { return y(d.rating); })
+    .attr("height", function(d) { return height - y(d.rating); })
+    .attr("width", x.rangeBand());
 
 function type(d) {
   d.rating = +d.rating; // coerce to number
