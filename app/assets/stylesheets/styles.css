@@ -18,7 +18,8 @@ body {
 
 #main_view_container {
 	background-color: white;
-	margin: auto;
+	border-radius: 2px;
+	margin: 20px auto auto 20px;
 	opacity: .7;
 	padding: 5px;
 }
