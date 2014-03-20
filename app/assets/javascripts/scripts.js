@@ -1,6 +1,6 @@
 var data = [
   {"name": "Freeport", "rating": 4},
-  {"name": "Captree", "rating": 3},
+  {"name": "Captree", "rating": 4.25},
   {"name": "World's Fair Marina", "rating": 3}
 ];
 
@@ -16,7 +16,7 @@ var x = d3.scale.ordinal()
 var y = d3.scale.linear()
   .range([height, 0])
   //  Should be called back in function upon complete download of json object
-  .domain([0, d3.max(data, function (d) { return d.rating; })]);
+  .domain([0, 5]);
 
 var xAxis = d3.svg.axis()
   .scale(x)
