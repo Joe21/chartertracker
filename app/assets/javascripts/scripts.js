@@ -1,4 +1,4 @@
-var data = [4, 8, 15, 16, 23, 42];
+var data = [{"name": "Freeport", "rating": 4}, {"name": "Captree", "rating": 3}, {"name": "World's Fair Marina", "rating": 3}];
 
 var width = 960,
     height = 500;
@@ -8,7 +8,7 @@ var x = d3.scale.linear()
 		.range([0, width]);
 
 var y = d3.scale.linear()
-		.domain([0, d3.max(data)]);
+		.domain([0, d3.max("y", function(d) {return data.rating; })]);
 
 var chart = d3.select(".chart")
     .attr("width", width)
