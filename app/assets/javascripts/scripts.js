@@ -24,7 +24,8 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
   .scale(y)
-  .orient("left");
+  .orient("left")
+  .ticks(10, "");
 
 var chart = d3.select(".chart")
   .attr("width", width + margin.left + margin.right)
@@ -41,16 +42,23 @@ chart.append("g")
 
 chart.append("g")
   .attr("class", "y axis")
-  .call(yAxis);
+  .call(yAxis)
+  .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Rating");
 
 chart.selectAll(".bar")
   .data(data)
   .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.name); })
+    .attr("width", x.rangeBand())
     .attr("y", function(d) { return y(d.rating); })
-    .attr("height", function(d) { return height - y(d.rating); })
-    .attr("width", x.rangeBand());
+    .attr("height", function(d) { return height - y(d.rating); });
+
 
 function type(d) {
   d.rating = +d.rating; // coerce to number

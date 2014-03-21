@@ -1,4 +1,4 @@
-#login_bar {
+#login-bar {
 	background-color: #FFFFFF;
 	border-bottom: 1px solid #000000;
 	height: 25px;
@@ -16,7 +16,7 @@ body {
 	width: 100%
 }
 
-#main_view_container {
+#main-view-container {
 	background-color: white;
 	border-radius: 2px;
 	margin: 20px;
@@ -40,5 +40,5 @@ body {
 }
 
 .x.axis path {
-  display: none;
+
 }

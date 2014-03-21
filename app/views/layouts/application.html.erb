@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="login_bar">
+  <div id="login-bar">
     <% if user_signed_in? %>
       <strong><%= current_user.email %></strong> |
       <%= link_to "Home", root_path %> |
@@ -23,7 +23,7 @@
 
   <div class="container">
 
-    <div id="login_alert_container">
+    <div id="login-alert-container">
       <% if notice %>  
         <p class="alert alert-notice"><strong><%= notice %></strong></p>
       <% end %>
@@ -32,7 +32,7 @@
       <% end %>
     </div>
 
-    <div id="main_view_container" class="sixteen columns">
+    <div id="main-view-container" class="sixteen columns">
       <%= yield %>
     </div>
   </div>
