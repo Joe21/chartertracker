@@ -12,6 +12,8 @@ Chartertracker::Application.routes.draw do
 
   root :to => "home#home"  
 
+  get 'tracker/test' => 'tracker#target_front_end'
+
 # [Rake Routes]
 ###################################
 #### Devise controller/actions ####
