@@ -2,40 +2,60 @@ class TrackerController < ApplicationController
 	before_filter :authenticate_user!, only: [:index, :target_front_end]
 	
 	def index
-		# Obtain all trips within the past 30 days
-		# all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
-
-		# data = []
-		# all_trips_within_30.each do |trip|
-		# 	object = Hash.new
-		# 	object["name"] = trip.location
-		# 	object["rating"] = trip.rating
-		# 	data << object
-		# end
-		#  puts "-------------------"
-		#  puts "-------------------"
-		#  puts data.each
-		#  puts "-------------------"
-
 	end
 
 	def target_front_end
 		all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
+		# array = []
+		# all_trips_within_30.each do |trip|
+		# 	array << {name: trip.location.name, rating: trip.rating }
+		# end
+
 		array = []
-		array = all_trips_within_30.each do |trip|
-			array << {name: trip.location.name, rating: trip.rating }
+		all_trips_within_30.each do |object|
+			array <<	{ object.location.name => {total: object.rating, frequency: 1} }
 		end
 
-		holder = []
+		# Ensure that object keys are in alphabetical order 
+		array.sort! { |a,b| a.keys <=> b.keys }
+		@initial = array
 
-		array.each do |element|
-		end
-
-
+		@locations = []
+		array.each do |hash|
+			hash.each do |key, value|
+				@locations.each do |object|
+					if object.keys.include?(key)
+						object[key][:total] += hash[value][:total]
+						object[key][:frequency] += 1
+					else
+						@locations << {key => value}
+					end
+				end
+			end
+		end		
 	end
 
 
 
+
+
+		# array.each do |hash|
+		# 	@locations.each_key do |key|
+		# 		if key == 
+
+		# 		a[:total] += b[:total]
+		# 		a[:frequency] += 1
+		# 	end
+		# 	@locations << hash
+		# 	end
+		# end
+
+
+
+			# if a.keys[0] == b.keys[0]
+			# 	a[:total] += b[:total]
+			# 	a[:frequency] += 1
+			# end
 
 		# Obtain all trips within the past 30 days
 		# all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
