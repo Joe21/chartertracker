@@ -29,11 +29,6 @@ class TrackerController < ApplicationController
 		holder = []
 
 		array.each do |element|
-			holder.each do |index|
-				index.include?(element[:name])
-				index[1] += element[:rating]
-				index[2] += 1
-			end
 		end
 
 
