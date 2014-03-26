@@ -5,14 +5,14 @@ Chartertracker::Application.routes.draw do
   post 'locations/:id/remove' => 'locations#remove_from_my_location', :as => 'remove_from_my_location'
   get 'locations/:id/trips/new' => 'trips#new', :as => 'new_trip'
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
-  get 'tracker' => 'tracker#index', :as => 'tracker'
+  get 'tracker' => 'tracker#chart', :as => 'chart'
 
   resources :locations
   resources :trips
 
   root :to => "home#home"  
 
-  get 'tracker/test' => 'tracker#target_front_end'
+  get 'tracker/test' => 'tracker#test'
 
 # [Rake Routes]
 ###################################
@@ -38,6 +38,8 @@ Chartertracker::Application.routes.draw do
 #       add_to_my_location POST   /locations/:id/add(.:format)       locations#add_to_my_location
 #  remove_from_my_location POST   /locations/:id/remove(.:format)    locations#remove_from_my_location
 #                 new_trip GET    /locations/:id/trips/new(.:format) trips#new
+#              delete_trip POST   /trips/:id/delete(.:format)        trips#destroy
+#                    chart GET    /tracker(.:format)                 tracker#chart
 #                locations GET    /locations(.:format)               locations#index
 #                          POST   /locations(.:format)               locations#create
 #             new_location GET    /locations/new(.:format)           locations#new
@@ -52,7 +54,6 @@ Chartertracker::Application.routes.draw do
 #                     trip GET    /trips/:id(.:format)               trips#show
 #                          PUT    /trips/:id(.:format)               trips#update
 #                          DELETE /trips/:id(.:format)               trips#destroy
-#              delete_trip POST   /trips/:id/delete(.:format)        trips#destroy
 #                     root        /                                  home#home
 
 end
