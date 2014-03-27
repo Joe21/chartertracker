@@ -9,21 +9,31 @@ class TrackerController < ApplicationController
 			locations << {name: trip.location.name, rating: trip.rating, total: trip.rating, frequency: 1}
 		end
 
-		array = []
+		# Sort query by location names alphabetically
+		locations.sort! { |a, b| a[:name] <=> b[:name] }
+
+		# Create variables required to identify duplicates and store their values
+		unique_names = []
+		data = []
+
+		# Nested iteration. Data will be fed only for unique location names. If not, the data object itself will be found and updated.
 		locations.each do |object|
-			for i in array
-				if i[:name] == object[:name]
-					i[:total] += object[:rating]
-					i[:frequency] += 1
-					locations.delete(object)
+			unless unique_names.include?(object[:name])
+				data << {name: object[:name], total: object[:rating], frequency: 1}
+				unique_names << object[:name]
+			else
+				for i in data
+					if i[:name] == object[:name]
+						i[:total] += object[:rating]
+						i[:frequency] += 1
+					end
 				end
 			end
-			array << object
 		end
 
 		warhead = []
-		locations.each do |object|
-			warhead << {name: object[:name], avg: (object[:total] / object[:frequency]).to_f.round(1)}
+		data.each do |object|
+			warhead << {name: object[:name], avg: (object[:total].to_f / object[:frequency]).round(1)}
 		end
 
 		respond_to do |format|
@@ -31,40 +41,4 @@ class TrackerController < ApplicationController
 			format.json {render :json => warhead.to_json}
 		end
 	end
-
-	def test
-		all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
-
-		@initial = []
-
-		@locations = []
-		all_trips_within_30.each do |trip|
-			@locations << {name: trip.location.name, rating: trip.rating, total: trip.rating, frequency: 1}
-			@initial << {name: trip.location.name, rating: trip.rating, total: trip.rating, frequency: 1}
-		end
-
-		# this works to sort the array of hashes
-		@initial.sort! { |a, b| a[:name] <=> b[:name] }
-		@locations.sort! { |a, b| a[:name] <=> b[:name] }
-
-		@array = []
-		@locations.each do |object|
-			for i in @array
-				if i[:name] == object[:name]
-					i[:total] += object[:rating]
-					i[:frequency] += 1
-					@locations.delete(object)
-				end
-			end
-			@array << object
-		end
-
-		@warhead = []
-		@locations.each do |object|
-			@warhead << {name: object[:name], avg: (object[:total] / object[:frequency]).round(1)}
-		end
-
-
-	end
-
 end
