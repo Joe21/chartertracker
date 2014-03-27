@@ -26,6 +26,9 @@ class TripsController < ApplicationController
 		location = Location.find(params[:location_id])
 		location.trips << trip
 
+		current_user.increment(:trips_counter)
+		current_user.save
+
 		redirect_to trips_path
 	end
 
@@ -43,6 +46,9 @@ class TripsController < ApplicationController
 	def destroy
 		trip = Trip.find(params[:id])
 		trip.destroy
+		
+		current_user.decrement(:trips_counter)
+		current_user.save
 
 		redirect_to trips_path
 	end

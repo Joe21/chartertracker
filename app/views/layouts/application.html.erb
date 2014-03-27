@@ -23,20 +23,22 @@
   </div>
 
   <div class="container">
-
-    <div id="login-alert-container">
-      <% if notice %>  
-        <p class="alert alert-notice"><strong><%= notice %></strong></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-error"><strong><%= alert %></strong></p>
-      <% end %>
-    </div>
-
     <div id="main-view-container" class="sixteen columns">
       <%= yield %>
     </div>
   </div>
+
+
+  <% if notice %>  
+  <div id="login-alert-container">
+    <p class="alert alert-notice"><strong><%= notice %></strong></p>
+  </div>
+  <% end %>
+  <% if alert %>
+  <div id="login-alert-container">
+    <p class="alert alert-error"><strong><%= alert %></strong></p>
+  </div>
+  <% end %>
 
 </body>
 

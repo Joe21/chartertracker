@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       # My Additions
       t.string :name
+      t.integer :trips_counter, :default => 0
       t.timestamps
     end
 

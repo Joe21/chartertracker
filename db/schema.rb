@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20140305010613) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.integer  "trips_counter",          :default => 0
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false

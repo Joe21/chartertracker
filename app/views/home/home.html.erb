@@ -9,11 +9,17 @@
 	</div>
 <% end %>
 
-
 <div id="home-menu">
 	<%= link_to "Locations Menu", locations_path %>
 
 	<%= link_to "Trips Menu" , trips_path %>
 
 	<%= link_to "Tracker Menu", chart_path %>
+</div>
+
+<div id="leaderboards">
+	<h3>Leaderboards</h3>
+	<br>
+	<%= current_user.trips_counter %>
+
 </div>
