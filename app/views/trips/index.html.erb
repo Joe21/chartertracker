@@ -14,6 +14,8 @@
 						<ul>
 							<li><strong>Trip Name: </strong> <%= trip.name %>
 								<br>
+								<strong>Trip Date: </strong> <%= trip.date.strftime("%m/%d/%Y")%>
+								<br>
 								<strong>Vessel: </strong>
 									<% if trip.vessel.length == 0 %>
 										N/A
@@ -30,7 +32,12 @@
 								<br>
 								<strong>Rating: </strong><%= trip.rating %>
 								<br>
-								<strong>Trip Date: </strong><%= trip.date.strftime("%m/%d/%Y") %>
+								<strong>Comments: </strong>
+								<br>
+									<div class="view-comments-container">
+										<%= trip.comments %>
+									</div>
+								<br>
 								<%= button_to "Edit Trip", edit_trip_path(trip.id), method: "get" %>
 								<%= button_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
 							</li>

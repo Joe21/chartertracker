@@ -20,5 +20,10 @@
 <div id="leaderboards">
 	<h3>Leaderboards</h3>
 	<br>
-	<%= current_user.trips_counter %>
+	<% @topten.each do |user| %>
+	Name: <%= user.name %>
+	<br>
+	Trips Contributed: <%= user.trips_counter %>
+	<br>
+	<% end %>
 </div>

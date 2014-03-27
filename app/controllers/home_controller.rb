@@ -12,13 +12,7 @@ class HomeController < ApplicationController
 			@pending_locations_count = Location.where(verified: false).count
 		end
 
-		# @array = []
-		# User.all.each do |user|
-		# 	@array << {name: user.name, trips: user.trips.count}
-		# end
-
-		# @array.sort! { |a, b| b[:trips] <=> a[:trips] }
-		# @topten = @array[0..9] 
+		@topten = User.order("trips_counter DESC").limit(10)
 	end
 
 end
