@@ -5,6 +5,7 @@ development:
   pool: 5
   username: user
   password:
+  host: localhost
 
 test:
   adapter: postgresql
@@ -20,6 +21,5 @@ production:
   encoding: unicode
   database: chartertracker_production
   pool: 5
-  username: user
   password:
   host: localhost

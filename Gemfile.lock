@@ -43,6 +43,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    execjs (2.0.2)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -113,6 +114,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.38)
+    uglifier (2.3.0)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -127,3 +131,4 @@ DEPENDENCIES
   pry
   rails (= 3.2.13)
   rspec-rails (~> 2.0)
+  uglifier (>= 1.0.3)
