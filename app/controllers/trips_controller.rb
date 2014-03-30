@@ -1,5 +1,5 @@
 class TripsController < ApplicationController
-	before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+	before_filter :authenticate_user!
 
 	def index
 		user = User.find(current_user)

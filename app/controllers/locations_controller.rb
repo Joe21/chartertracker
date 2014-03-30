@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-	before_filter :authenticate_user!, only: [:index, :new, :create, :add_to_my_location, :remove_from_my_location]
+	before_filter :authenticate_user!
 
 	def index
 		# Set a variable for all approved locations that a user can add.

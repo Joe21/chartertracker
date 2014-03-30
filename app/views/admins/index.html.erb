@@ -1,0 +1,12 @@
+<div>
+	<h3>Locations Pending: <%= @pending_locations.count %></h3>
+	<% if @pending_locations.count > 0 %>
+		<ul>
+		<% @pending_locations.each do |location| %>
+				<li><%= location.name %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
+
+<h1><%= @test %></h1>

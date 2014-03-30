@@ -6,13 +6,12 @@ Chartertracker::Application.routes.draw do
   get 'locations/:id/trips/new' => 'trips#new', :as => 'new_trip'
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
   get 'tracker' => 'tracker#chart', :as => 'chart'
+  get 'admins' => 'admins#index', :as => 'admins'
 
   resources :locations
   resources :trips
 
   root :to => "home#home"  
-
-  get 'tracker/test' => 'tracker#test'
 
 # [Rake Routes]
 ###################################
@@ -40,6 +39,7 @@ Chartertracker::Application.routes.draw do
 #                 new_trip GET    /locations/:id/trips/new(.:format) trips#new
 #              delete_trip POST   /trips/:id/delete(.:format)        trips#destroy
 #                    chart GET    /tracker(.:format)                 tracker#chart
+#                   admins GET    /admins(.:format)                  admins#index
 #                locations GET    /locations(.:format)               locations#index
 #                          POST   /locations(.:format)               locations#create
 #             new_location GET    /locations/new(.:format)           locations#new

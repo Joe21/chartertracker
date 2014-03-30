@@ -1,5 +1,4 @@
 class TrackerController < ApplicationController
-	before_filter :authenticate_user!, only: [:chart]
 	
 	def chart
 		all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
