@@ -5,6 +5,7 @@ gem 'pg'
 gem 'devise'
 gem 'pry'
 
+
 group :test do
   gem 'rspec-rails', '~> 2.0'
 end
