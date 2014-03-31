@@ -5,6 +5,7 @@ gem 'pg'
 gem 'devise'
 gem 'pry'
 gem 'carrierwave'
+gem 'fog', '~> 1.3.1'
 
 group :test do
   gem 'rspec-rails', '~> 2.0'

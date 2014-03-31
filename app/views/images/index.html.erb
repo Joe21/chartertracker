@@ -1,0 +1,5 @@
+<%= form_for @image, :html => {:multipart => true} do |f| %>
+	<%= f.label 'Choose Your Leaderboard Image' %><br />
+	<%= f.file_field :image %><br />
+	<%= f.submit %>
+<% end %>

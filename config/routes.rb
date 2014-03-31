@@ -9,6 +9,7 @@ Chartertracker::Application.routes.draw do
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
   get 'tracker' => 'tracker#chart', :as => 'chart'
   get 'admins' => 'admins#index', :as => 'admins'
+  get 'image' => 'images#index', :as => 'image'
 
   resources :locations
   resources :trips

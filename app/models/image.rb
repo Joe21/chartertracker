@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
-  attr_accessible :file
+	require 'carrierwave/orm/activerecord'
+
+  attr_accessible :data
 
   belongs_to :user
 end
