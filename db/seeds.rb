@@ -19,33 +19,33 @@ Trip.create(name: "test4", date: DateTime.new(2014,03,15), vessel:"NevrEnuff2", 
 User.all.each do |user| user.locations << Location.all end
 
 # Seed Testing
-# joe = User.find_by_name("Joe")
-# john = User.find_by_name("John")
-# lonebull = User.find_by_name("Lonebull")
+joe = User.find_by_name("Joe")
+john = User.find_by_name("John")
+lonebull = User.find_by_name("Lonebull")
 
-# marina = Location.find_by_name("World's Fair Marina")
-# freeport = Location.find_by_name("Freeport")
-# captree = Location.find_by_name("Captree")
+marina = Location.find_by_name("World's Fair Marina")
+freeport = Location.find_by_name("Freeport")
+captree = Location.find_by_name("Captree")
 
-# test1 = Trip.find_by_name("test1")
-# test2 = Trip.find_by_name("test2")
-# test3 = Trip.find_by_name("test3")
-# test4 = Trip.find_by_name("test4")
+test1 = Trip.find_by_name("test1")
+test2 = Trip.find_by_name("test2")
+test3 = Trip.find_by_name("test3")
+test4 = Trip.find_by_name("test4")
 
-# captree.trips << test1
-# freeport.trips << test2
-# marina.trips << test3
-# marina.trips << test4
+captree.trips << test1
+freeport.trips << test2
+marina.trips << test3
+marina.trips << test4
 
-# joe.trips << test1
-# joe.trips << test4
-# joe.update_attribute :trips_counter, 3
-# john.trips << test2
-# john.update_attribute :trips_counter, 2
-# lonebull.trips << test3
-# lonebull.update_attribute :trips_counter, 2
+joe.trips << test1
+joe.trips << test4
+joe.update_attribute :trips_counter, 2
+john.trips << test2
+john.update_attribute :trips_counter, 1
+lonebull.trips << test3
+lonebull.update_attribute :trips_counter, 1
 
 
-### NOTES ###
+## NOTES ###
 # git clone git@heroku.com:chartertracker.git -o heroku
 # http://chartertracker.herokuapp.com/
