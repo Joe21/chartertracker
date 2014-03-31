@@ -9,12 +9,9 @@ Chartertracker::Application.routes.draw do
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
   get 'tracker' => 'tracker#chart', :as => 'chart'
   get 'admins' => 'admins#index', :as => 'admins'
-  get 'users/:id' => 'users#add_image', :as => 'add_image'
 
   resources :locations
   resources :trips
-
-
 
 # [Rake Routes]
 ###################################
@@ -37,6 +34,7 @@ Chartertracker::Application.routes.draw do
 ###################################
 ###### My controller/actions ######
 ###################################
+#                     root        /                                  home#home
 #       add_to_my_location POST   /locations/:id/add(.:format)       locations#add_to_my_location
 #  remove_from_my_location POST   /locations/:id/remove(.:format)    locations#remove_from_my_location
 #                 new_trip GET    /locations/:id/trips/new(.:format) trips#new
@@ -56,7 +54,6 @@ Chartertracker::Application.routes.draw do
 #                edit_trip GET    /trips/:id/edit(.:format)          trips#edit
 #                     trip GET    /trips/:id(.:format)               trips#show
 #                          PUT    /trips/:id(.:format)               trips#update
-#                          DELETE /trips/:id(.:format)               trips#destroy
-#                     root        /                                  home#home
+#                          DELETE /trips/:id(.:format)               trips#destroy                               home#home
 
 end
