@@ -32,6 +32,11 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     builder (3.0.4)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.0.9)
     d3-rails (3.3.7)
       railties (>= 3.1)
@@ -124,6 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  carrierwave
   d3-rails
   devise
   jquery-rails

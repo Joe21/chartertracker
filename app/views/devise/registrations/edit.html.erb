@@ -10,17 +10,22 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div><%= f.label :password %>(leave blank if you don't want to change it)<br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i><strong>(we need your current password to confirm your changes)</i></strong><br />
+  <div><%= f.label :current_password %><strong>(You must enter your password to save any changes!)</strong><br />
   <%= f.password_field :current_password %></div>
 
-<div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>  
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :image %><br />
+    Your image will only be displayed if you hit the leaderboards!<br />
+    <%= f.file_field :image %><br />
+  </div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>

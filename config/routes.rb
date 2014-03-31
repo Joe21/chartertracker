@@ -1,5 +1,7 @@
 Chartertracker::Application.routes.draw do  
-  devise_for :users  
+  devise_for :users
+
+  root :to => "home#home"    
 
 	post 'locations/:id/add' => 'locations#add_to_my_location', :as => 'add_to_my_location'
   post 'locations/:id/remove' => 'locations#remove_from_my_location', :as => 'remove_from_my_location'
@@ -7,11 +9,12 @@ Chartertracker::Application.routes.draw do
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
   get 'tracker' => 'tracker#chart', :as => 'chart'
   get 'admins' => 'admins#index', :as => 'admins'
+  get 'users/:id' => 'users#add_image', :as => 'add_image'
 
   resources :locations
   resources :trips
 
-  root :to => "home#home"  
+
 
 # [Rake Routes]
 ###################################

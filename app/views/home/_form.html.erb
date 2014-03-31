@@ -1,0 +1,7 @@
+<%= form_for @user, method: :post, url: root_path, :html => {:multipart => true} do |f| %>
+	<%= f.label 'Add Your Image' %>
+	<%= f.file_field :image %>
+	<%= f.submit %>
+<% end %>
+
+	<%= render partial: "form", locals: {user: @user} %>
