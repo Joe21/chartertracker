@@ -10,6 +10,8 @@ Chartertracker::Application.routes.draw do
   get 'tracker' => 'tracker#chart', :as => 'chart'
   get 'admins' => 'admins#index', :as => 'admins'
   get 'image' => 'images#index', :as => 'image'
+  post 'image' => 'images#index'
+  get 'image/show' => 'images#show'
 
   resources :locations
   resources :trips

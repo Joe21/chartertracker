@@ -1,7 +1,6 @@
 class Image < ActiveRecord::Base
-	require 'carrierwave/orm/activerecord'
-
   attr_accessible :data
 
   belongs_to :user
+ 	mount_uploader :data, ImageUploader
 end
