@@ -1,0 +1,7 @@
+<div>
+	<%= form_for @image, :html => { :multipart => true } do |f| %>
+		<%= f.label "Image" %><br />
+		<%= f.file_field :data %><br />
+		<%= f.submit %>
+		<% end %>
+</div>

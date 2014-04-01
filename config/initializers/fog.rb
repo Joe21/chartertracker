@@ -4,7 +4,7 @@ CarrierWave.configure do |config|
     :aws_access_key_id      => ENV['CTKEY'], 
     :aws_secret_access_key  => ENV['CTSECRET']
   } 
-  config.fog_directory  = 'joe_first_bucket/chartertracker' 
+  config.fog_directory  = 'chartertracker.bucket' 
   config.fog_public     = false
 
   config.cache_dir = "#{Rails.root}/tmp/uploads"                  # To let CarrierWave work on heroku

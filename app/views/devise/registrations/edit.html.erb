@@ -3,6 +3,9 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
@@ -18,9 +21,6 @@
 
   <div><%= f.label :current_password %><strong>(You must enter your password to save any changes!)</strong><br />
   <%= f.password_field :current_password %></div>
-
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
 
   <div><%= f.submit "Update" %></div>
 <% end %>

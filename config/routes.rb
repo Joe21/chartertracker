@@ -1,5 +1,6 @@
 Chartertracker::Application.routes.draw do  
-  devise_for :users, :controllers => { :registrations => 'users'}
+  devise_for :users
+# devise_for :users, :controllers => { :registrations => 'users'}
 
   root :to => "home#home"    
 
@@ -9,12 +10,13 @@ Chartertracker::Application.routes.draw do
   post 'trips/:id/delete' => 'trips#destroy', :as => 'delete_trip'
   get 'tracker' => 'tracker#chart', :as => 'chart'
   get 'admins' => 'admins#index', :as => 'admins'
-  get 'image' => 'images#index', :as => 'image'
-  post 'image' => 'images#index'
-  get 'image/show' => 'images#show'
+  # get 'image' => 'images#index', :as => 'image'
+  # post 'image' => 'images#index'
+  # get 'image/show' => 'images#show'
 
   resources :locations
   resources :trips
+  resources :images
 
 # [Rake Routes]
 ###################################
@@ -57,6 +59,13 @@ Chartertracker::Application.routes.draw do
 #                edit_trip GET    /trips/:id/edit(.:format)          trips#edit
 #                     trip GET    /trips/:id(.:format)               trips#show
 #                          PUT    /trips/:id(.:format)               trips#update
-#                          DELETE /trips/:id(.:format)               trips#destroy                               home#home
+#                          DELETE /trips/:id(.:format)               trips#destroy
+#                   images GET    /images(.:format)                  images#index
+#                          POST   /images(.:format)                  images#create
+#                new_image GET    /images/new(.:format)              images#new
+#               edit_image GET    /images/:id/edit(.:format)         images#edit
+#                          GET    /images/:id(.:format)              images#show
+#                          PUT    /images/:id(.:format)              images#update
+#                          DELETE /images/:id(.:format)              images#destroy
 
 end

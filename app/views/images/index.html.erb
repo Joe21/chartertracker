@@ -1,6 +1,14 @@
-<%= form_for @image, method: :post, url: image_path, :html => {:multipart => true} do |f| %>
-	<%= f.file_field :data %><br />
-	<%= f.submit %>
-<% end %>
+<h3><%= current_user.image_counter %></h3>
+<div>
+	<% if current_user.images.count > 0 %>
+		<% @images.each do |image| %>
+			<%= image_tag image.data.to_s %><br />
+			<%= link_to "edit", edit_image_path(image) %> |
+			<%= link_to "remove", image, :method => :delete %>
+		<% end %>
+	<% else %>
+		You have no images
+	<% end %>
+</div>
 
-<br>
+<%= link_to "Add Image", new_image_path %>
