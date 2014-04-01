@@ -11,7 +11,7 @@ class ImagesController < ApplicationController
 	end
 
 	def show
-		@image = current_user.image
+		@image = Image.find_by_user_id(current_user.id)
 	end
 
 end
