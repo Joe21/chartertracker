@@ -1,6 +1,16 @@
+body {
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	margin-top: 20px;
+	width: 100%
+}
+
 #login-bar {
 	background-color: #FFFFFF;
 	border-bottom: 1px solid #000000;
+	font-size: 1.1em;
 	height: 20px;
 	margin: auto;
 	padding: 2px 8px 2px 8px;
@@ -9,6 +19,14 @@
 	top: 0;
 	width: 100%;
 	z-index: 100;
+}
+
+#login-bar a {
+	text-decoration: none;
+}
+
+#login-bar a:hover {
+	font-weight: bold;
 }
 
 #login-alert-container {
@@ -22,24 +40,20 @@
 	z-index: 100;
 }
 
-body {
-	background-image: url('background.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	margin-top: 20px;
-	width: 100%
-}
-
-.container {
-}
-
 #main-view-container {
 	background-color: white;
 	border-radius: 2px;
 	opacity: .7;
-	padding: 5px;
+	padding: 10px;
 }
+
+.sign-in-container form {
+	display: inline;
+}
+.sign-in-container label {
+	width: 40%;
+}
+
 
 .bar {
   fill: steelblue;
