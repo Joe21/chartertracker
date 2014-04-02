@@ -30,5 +30,6 @@ class ImagesController < ApplicationController
 		image.destroy
 		redirect_to images_path
 	end
-
 end
+
+# <%= image_tag image.data_url(:thumb).to_s %><br />

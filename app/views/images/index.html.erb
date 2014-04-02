@@ -2,7 +2,7 @@
 <div>
 	<% if current_user.images.count > 0 %>
 		<% @images.each do |image| %>
-			<%= image_tag image.data_url(:thumb).to_s %><br />
+			<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
 			<%= link_to "remove", image, :method => :delete %>
 		<% end %>
 	<% else %>
