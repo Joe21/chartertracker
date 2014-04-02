@@ -6,6 +6,7 @@ class ImagesController < ApplicationController
 	end
 
 	def show
+		@image = Image.find(params[:id])
 	end
 
 	def new
@@ -14,17 +15,13 @@ class ImagesController < ApplicationController
 
 	def create
 		response = params[:image]
-		if response == nil
-			redirect_to new_image_path
+		if (response == nil || current_user.images.count == 5)
+			render :error
 		else
-			if current_user.images.count < 5
-				image = Image.create(params[:image])
-				image.update_attribute :user_id, current_user.id
-				image.save!
-				redirect_to images_path
-			else
-				render :limit
-			end
+			image = Image.create(params[:image])
+			image.update_attribute :user_id, current_user.id
+			image.save!
+			redirect_to images_path
 		end
 	end
 

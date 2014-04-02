@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'pry'
-gem 'rmagick'
+gem "mini_magick"
 gem 'carrierwave'
 gem 'fog', '~> 1.3.1'
 
