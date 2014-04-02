@@ -14,8 +14,11 @@
 	<% @topten.each do |user| %>
 	Name: <%= user.name %>
 	<br>
-	Trips Contributed: <%= user.trips_counter %>
-	<br>
+	Trips Contributed: <%= user.trips_counter %><br />
+	<br />
+		<% user.images.each do |image| %>
+		<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
+		<% end %>
 	<hr>
 	<% end %>
 </div>
