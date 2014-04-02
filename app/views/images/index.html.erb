@@ -1,9 +1,8 @@
-<h3><%= current_user.image_counter %></h3>
+<h3><%= current_user.images.count %></h3>
 <div>
 	<% if current_user.images.count > 0 %>
 		<% @images.each do |image| %>
-			<%= image_tag image.data.to_s %><br />
-			<%= link_to "edit", edit_image_path(image) %> |
+			<%= image_tag image.data.url.to_s %><br />
 			<%= link_to "remove", image, :method => :delete %>
 		<% end %>
 	<% else %>

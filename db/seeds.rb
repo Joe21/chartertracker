@@ -2,9 +2,9 @@ User.delete_all
 Location.delete_all
 Trip.delete_all
 
-User.create(email:"joe@joe.com", password:"password", name:"Joe", trips_counter: 0, image_counter: 0, )
-User.create(email:"john@john.com", password:"password", name:"John", trips_counter: 0, image_counter: 0)
-User.create(email:"lonebull@lonebull.com", password:"password", name:"Lonebull", trips_counter: 0, image_counter: 0)
+User.create(email:"joe@joe.com", password:"password", name:"Joe", trips_counter: 0)
+User.create(email:"john@john.com", password:"password", name:"John", trips_counter: 0)
+User.create(email:"lonebull@lonebull.com", password:"password", name:"Lonebull", trips_counter: 0)
 Location.create(name:"World's Fair Marina", verified: true)
 Location.create(name:"Freeport", verified: true)
 Location.create(name:"Captree", verified: true)
