@@ -1,29 +1,26 @@
-<h1>Welcome to Charter Tracker <%= current_user.name %>!</h1>
-
-<div id="home-menu">
-	<%= link_to "Locations Menu", locations_path %>
-
-	<%= link_to "Trips Menu" , trips_path %>
-
-	<%= link_to "Tracker Menu", chart_path %>
-</div>
+<h2 id="welcome">Welcome to Charter Tracker <%= current_user.name %>!</h2>
 
 <div id="leaderboards">
-	<h3>Leaderboards</h3>
-	<br>
+	<div class="title">
+		<h2>Leaderboards</h2>
+			<p>Get on the leaderboard to share your gallery!</p>
+	</div><br />
+
 	<% @topten.each do |user| %>
-	Name: <%= user.name %>
-	<br>
-	Trips Contributed: <%= user.trips_counter %><br />
+	<strong>Name:</strong> <%= user.name %><br />
+	<strong>Trips Contributed: </strong><%= user.trips_counter %><br />
 	<br />
 		<% user.images.each do |image| %>
-		<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
+		<div class="thumb-container three columns">
+			<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %>
+		</div>
 		<% end %>
 	<hr>
 	<% end %>
 </div>
 
-<br>
-<br>
-<div>
-</div>
+<script>
+	$(function() {
+
+	})
+</script>
