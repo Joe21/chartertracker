@@ -39,5 +39,13 @@ class TrackerController < ApplicationController
 			format.html
 			format.json {render :json => warhead.to_json}
 		end
+
+
+		# puts '---------------------'
+		# puts '---------------------'
+		# puts all_trips_within_30.count
+		# puts '---------------------' 
+		# puts '---------------------' 
+
 	end
 end

@@ -1,17 +1,18 @@
+/* Called outside of the skeleton container */
 body {
 	background-image: url('background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
-	margin-bottom: 40px;
 	width: 100%
 }
 
 #login-alert-container {
 	background-color: black;
 	bottom: 20px;	
-	height: 20px;
-	padding: 0 2px 2px 2px;
+	height: 21px;
+	padding: 2px;
+	position: fixed;
 	width: 100%;
 }
 
@@ -37,20 +38,63 @@ body {
 	color: #3366FF;
 }
 
-#login-bar {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+.button-container {
+	display: inline-block;
 }
 
+/* Called inside the skeleton container */
 #main-view-container {
-	background: #B8DBFF;
+	background: #89C4FF;
 	border-radius: 2px;
 	margin-top: 25px;
 	opacity: 1.0;
 	padding: 10px;
 }
 
+#main-view-container {
+}
+
+.title {
+	margin: 10px 0;
+	text-align: center;
+}
+
+.center-me {
+	text-align: center;
+}
+
+.font-roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+
+.font-gentium {
+	font-family: 'Gentium Book Basic', serif;
+}
+
+/* Devise views */
+#welcome {
+	font-weight: bold;
+	text-align: center;
+}
+
+label['user_email']{
+	
+}
+
+#sign-in-form-container {
+	text-align: center;
+}
+
+#sign-in-form-container input {
+	margin: auto;
+}
+
+#sign-in-visitor-container {
+	text-align: center;
+}
+
+/* Home view */
 #home-menu {
 	background-color: #ffffff;
 	border-bottom: 1px solid #000000;
@@ -76,40 +120,31 @@ body {
 	font-weight: normal;
 }
 
-#welcome {
-	font-weight: bold;
-	text-align: center;
-}
-
-.title {
-	margin: 10px 0;
-	text-align: center;
-}
-
 .thumb-container {
 	text-align: center;
 }
 
-#sign-in-form-container {
-	text-align: center;
+/* Trips view */
+
+table, th, tr, td {
+	border: 1px solid black;
+	padding: 0 5px;
 }
 
-#sign-in-form-container input {
-	margin: auto;
+th {
+	background-color: #3366FF;
+	color: #ffffff;
 }
 
-#sign-in-visitor-container {
-	text-align: center;
+tr:nth-child(even) {
+	background-color: #ffffff;
 }
 
+tr:nth-child(odd) {
+	background-color: #CCDFFF;
+}
 
-
-
-
-
-
-
-
+/* Tracker view */
 .bar {
   fill: steelblue;
 }

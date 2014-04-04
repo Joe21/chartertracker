@@ -1,50 +1,64 @@
-<h1>Trips Menu</h1>
-<h2>Total Number of Trips: <%= current_user.trips.count %></h2>
+<h1 class="title">Trips Menu</h1>
+<p class="center-me">Total Number of Trips: <%= current_user.trips.count %></p>
 
-<div>
-	<ul>
-		<head>Trips By Location</head>
-		<% @my_locations.each do |location| %>
-			<li><%= location.name %> <%= link_to "Add Trip", new_trip_path(location.id) %>
-				<br>
-				Total Number of Trips: <%= (location.trips & current_user.trips).count %>
-				<br>
-				<% if (location.trips & current_user.trips).count > 0 %>
-					<% (location.trips & current_user.trips).each do |trip| %>
-						<ul>
-							<li><strong>Trip Name: </strong> <%= trip.name %>
-								<br>
-								<strong>Trip Date: </strong> <%= trip.date.strftime("%m/%d/%Y")%>
-								<br>
-								<strong>Vessel: </strong>
-									<% if trip.vessel.length == 0 %>
-										N/A
-									<% else %>
-										<%= trip.vessel %>
-									<% end %>
-								<br>
-								<strong>Captain: </strong>
-									<% if trip.captain.length == 0 %>
-										N/A
-									<% else %>
-										<%= trip.captain %>
-									<% end %>
-								<br>
-								<strong>Rating: </strong><%= trip.rating %>
-								<br>
-								<strong>Comments: </strong>
-								<br>
-									<div class="view-comments-container">
-										<%= trip.comments %>
-									</div>
-								<br>
-								<%= button_to "Edit Trip", edit_trip_path(trip.id), method: "get" %>
-								<%= button_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
-							</li>
-						</ul>
-					<% end %>
-				<% end %>
-			<br>
-			</li>
+<% @my_locations.each do |location| %>
+
+	<h3><%= location.name %>
+		<div class="button-container"><%= button_to "Add Trip", new_trip_path(location.id), method: "get"%>
+		</div></h3>
+	Total Number of Trips: <%= (location.trips & current_user.trips).count %><br />
+
+
+	
+	<% if (location.trips & current_user.trips).count > 0 %>
+		<% (location.trips & current_user.trips).each do |trip| %>
+			<table class="trips-table">	
+				<tr>
+					<th>Name</th>
+					<td><%= trip.name %></td>
+				</tr>
+				<tr>
+					<th>Date</th>
+					<td><%= trip.date.strftime("%m/%d/%Y")%></td>
+				</tr>
+				<tr>
+					<th>Vessel</th>
+					<td>
+						<% if trip.vessel.length == 0 %>
+							N/A
+						<% else %>
+							<%= trip.vessel %>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<th>Captain</th>
+					<td>
+						<% if trip.captain.length == 0 %>
+							N/A
+						<% else %>
+							<%= trip.captain %>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<th>Rating</th>
+					<td><%= trip.rating %></td>
+				</tr>
+				<tr>
+					<th>Comments</th>
+					<td><%= trip.comments %></td>
+				</tr>
+			</table><br />
+			<div class="button-container">
+				<%= button_to "Edit Trip", edit_trip_path(trip.id), method: "get" %>
+			</div>
+			<div class="button-container">
+				<%= button_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
+			</div>
+		<br />
+		<br />
 		<% end %>
-	</ul>
+	<% end %>
+	<hr>
+<% end %>
