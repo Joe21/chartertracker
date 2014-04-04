@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 		@topten = User.order("trips_counter DESC").limit(10)
 	end
 
+	def about
+	end
+
 end

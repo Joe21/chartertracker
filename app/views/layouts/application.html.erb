@@ -51,17 +51,18 @@
 
   <div id="footer">
     <% if user_signed_in? %>
-      <strong><%= current_user.name %></strong> |
-      <%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <span id="name"><%= current_user.name %></span>
+      <%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+      <%= link_to "About", about_path %>
       <% if current_user.admin? %>
-      | <%= link_to "Admin", admins_path %>
+      <%= link_to "Admin", admins_path %>
       <% end %>
 
     <% else %>
-      <%= link_to "Home", root_path %> |
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %>
+      <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
     <% end %>
   </div>
 

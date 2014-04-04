@@ -13,6 +13,7 @@ Chartertracker::Application.routes.draw do
   post 'admins/:id/reject' => 'admins#reject', :as => 'reject'
   get 'admins/:id/images' => 'admins#images', :as => 'image_police'
   post 'admins/:id/delete_image' => 'admins#delete_image', :as => 'delete_image'
+  get 'home/about' => 'home#about', :as => 'about'
 
   resources :locations
   resources :trips

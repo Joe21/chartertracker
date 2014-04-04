@@ -38,10 +38,17 @@ body {
 
 #footer a {
 	color: #ffffff;
+	padding: 0 4px;
 }
 
 #footer a:hover {
 	color: #3366FF;
+}
+
+#name {
+	color: steelblue;
+	font-weight: bold;
+	padding-right: 2px;
 }
 
 .button-container {
