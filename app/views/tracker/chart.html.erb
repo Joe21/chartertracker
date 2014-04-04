@@ -1,23 +1,42 @@
+<h2 class="title">Tracker</h2>
+<p class="center-me"><em>Avg user trip ratings for all approved locations within the past <span id="day-number">30</span> days.</em></p><br />
+
 <svg class="chart" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
+<div class="button-container">
+	<button id="button-seven">7 days</button>
+	<button id="button-thirty">30 days</button>
+</div>
 
 <script>
 // Establish global variable to store json values
 var data;
 
 // Send ajax GET request to server with a callback function to render the chart
-function getData() {
+function getDataThirty() {
 	var request = $.ajax({
 	  url: '/tracker',
 	  method: 'GET',
 	  dataType: 'json',
-	  success: function(warhead) {
-	    data = warhead;
+	  success: function(missile) {
+	    data = missile[1];
 	    createChart()
 	  }
 	});
 }
 
-// Constructor function creates the chart. Note that it must be called after the json data is captured.
+function getDataSeven() {
+	var request = $.ajax({
+	  url: '/tracker',
+	  method: 'GET',
+	  dataType: 'json',
+	  success: function(missile) {
+	    data = missile[0];
+	    createChart()
+	  }
+	});
+}
+
+// Constructor function creates the chart. Note that it must be called after the json data is received.
 function createChart() {
 	var margin = { top: 20, right: 30, bottom: 30, left: 40},
 	  width = 960 - margin.left - margin.right,
@@ -70,11 +89,13 @@ function createChart() {
 	    .attr("y", function(d) { return y(d.avg); })
 	    .attr("height", function(d) { return height - y(d.avg); });
 
+	// Function used to grab the value from the appropriate object key
 	function type(d) {
 	  d.avg = +d.avg;
 	  return d;
 	}
 
+	// Make chart responsive, occurs on window resize.
 	var aspect = 960 / 500,
     chart = $(".chart");
 
@@ -85,8 +106,24 @@ function createChart() {
 	});
 }
 
-$(function() {
-	getData();
-})
+// Clear svg element and call appropriate chart
+function clearChart7() {
+	$('svg').empty();
+	getDataSeven();
+	$('#day-number').html('7')
+}
 
+function clearChart30() {
+	$('svg').empty();
+	getDataThirty();
+	$('#day-number').html('30')
+}
+
+// Initiates on windowload
+$(function() {
+	getDataThirty();
+
+	$('#button-seven').on('click', clearChart7);
+	$('#button-thirty').on('click', clearChart30);
+})
 </script>

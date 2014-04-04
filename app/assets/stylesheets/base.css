@@ -63,7 +63,7 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: "Gentium Book Basic", serif;
+		font-family: 'Playball', cursive;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 5px;}
@@ -89,7 +89,7 @@
 	blockquote cite:before { content: "\2014 \0020"; }
 	blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }
 
-	hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
+	hr { border: solid #000000; border-width: 1px 0 0; clear: both; margin: 20px 30px 20px 20px; height: 0; }
 
 
 /* #Links
@@ -147,13 +147,13 @@
 	  -webkit-border-radius: 3px;
 	  border-radius: 3px;
 	  color: #444;
-	  display: inline;
+	  display: inline-block;
 	  font-size: 11px;
 	  font-weight: bold;
 	  text-decoration: none;
 	  text-shadow: 0 1px rgba(255, 255, 255, .75);
 	  cursor: pointer;
-	  margin-bottom: 10px;
+	  margin-bottom: 2px;
 	  line-height: normal;
 	  padding: 8px;
 	  font-family: "Roboto", Helvetica, Arial, sans-serif; }

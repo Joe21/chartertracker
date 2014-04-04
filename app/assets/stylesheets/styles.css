@@ -4,12 +4,13 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
+	margin-bottom: 50px;
 	width: 100%
 }
 
 #login-alert-container {
 	background-color: black;
-	bottom: 20px;	
+	bottom: 25px;	
 	height: 21px;
 	padding: 2px;
 	position: fixed;
@@ -21,7 +22,8 @@ body {
 }
 
 #footer {
-	background-color: #ffffff;
+	background-color: #000000;
+	border-top: 1px solid #ffffff;
 	bottom: 0;
 	height: 20px;
 	left: 0;
@@ -30,8 +32,12 @@ body {
 	width: 100%;
 }
 
+#footer strong {
+	color: #ffffff;
+}
+
 #footer a {
-	color: #000000;
+	color: #ffffff;
 }
 
 #footer a:hover {
@@ -44,7 +50,7 @@ body {
 
 /* Called inside the skeleton container */
 #main-view-container {
-	background: #89C4FF;
+	background: #D1FFFF;
 	border-radius: 2px;
 	margin-top: 25px;
 	opacity: 1.0;
@@ -54,32 +60,10 @@ body {
 #main-view-container {
 }
 
-.title {
-	margin: 10px 0;
-	text-align: center;
-}
-
-.center-me {
-	text-align: center;
-}
-
-.font-roboto {
-	font-family: 'Roboto', sans-serif;
-}
-
-
-.font-gentium {
-	font-family: 'Gentium Book Basic', serif;
-}
-
 /* Devise views */
 #welcome {
 	font-weight: bold;
 	text-align: center;
-}
-
-label['user_email']{
-	
 }
 
 #sign-in-form-container {
@@ -94,10 +78,17 @@ label['user_email']{
 	text-align: center;
 }
 
+#tag {
+	color: #000000;
+	float: right;
+	font-size: .75em;
+	text-align: right;
+}
+
 /* Home view */
 #home-menu {
-	background-color: #ffffff;
-	border-bottom: 1px solid #000000;
+	background-color: #000000;
+	border-bottom: 1px solid #ffffff;
 	height: 25px;
 	left: 0;
 	position: fixed;
@@ -108,11 +99,11 @@ label['user_email']{
 
 .home-menu-item {
 	display: inline;
-	padding: 0px 5px;
+	padding: 0px 3px;
 }
 
 .home-menu-item a {
-	color: #000000;
+	color: #ffffff;
 }
 
 .home-menu-item a:hover {
@@ -121,6 +112,10 @@ label['user_email']{
 }
 
 .thumb-container {
+	text-align: center;
+}
+
+.nuub-container {
 	text-align: center;
 }
 
@@ -144,6 +139,32 @@ tr:nth-child(odd) {
 	background-color: #CCDFFF;
 }
 
+/* Locations view */
+.my-locations {
+	border-bottom: 1px solid #ffffff;
+}
+.remove-button-container {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+/* Images view */
+.circle {
+	border: 1px solid #ffffff;
+	border-radius: 20px;
+	background-color: #67FF4D;
+	display: inline-block;
+	height: 20px;
+	text-align: center;
+	width: 20px;
+}
+ 
+input[type="file"] {
+	border: 1px solid grey;
+	background-color: white;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
 /* Tracker view */
 .bar {
   fill: steelblue;
@@ -158,4 +179,43 @@ tr:nth-child(odd) {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+/* Misc */
+.bold-me {
+	font-weight: bold;
+}
+
+.center-me {
+	text-align: center;
+}
+
+.font-playball {
+	font-family: 'Playball', cursive;
+}
+
+.font-roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+.font-gentium {
+	font-family: 'Gentium Book Basic', serif;
+}
+
+.left-me {
+	display: inline-block;
+	text-align: left;
+}
+
+.right-me {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	text-align: right;
+}
+
+.title {
+	font-family: 'Playball', cursive;
+	margin: 10px 0;
+	text-align: center;
 }

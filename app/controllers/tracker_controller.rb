@@ -1,6 +1,9 @@
 class TrackerController < ApplicationController
 	
 	def chart
+		###########################################
+		# Arming json warhead for past 30 days
+		###########################################
 		all_trips_within_30 = Trip.where(date: (Time.now - 30.day)..Time.now)
 
 		locations = []
@@ -30,22 +33,56 @@ class TrackerController < ApplicationController
 			end
 		end
 
-		warhead = []
+		warhead_thirty= []
 		data.each do |object|
-			warhead << {name: object[:name], avg: (object[:total].to_f / object[:frequency]).round(1)}
+			warhead_thirty << {name: object[:name], avg: (object[:total].to_f / object[:frequency]).round(1)}
 		end
+		
+		###########################################
+		### Arming json warhead for past 7 days ###
+		###########################################
+		all_trips_within_7 = Trip.where(date: (Time.now - 7.day)..Time.now)
+
+		locations7 = []
+		all_trips_within_7.each do |trip|
+			locations7 << {name: trip.location.name, rating: trip.rating, total: trip.rating, frequency: 1}
+		end
+
+		# Sort query by location names alphabetically
+		locations7.sort! { |a, b| a[:name] <=> b[:name] }
+
+		# Create variables required to identify duplicates and store their values
+		unique_names7 = []
+		data7 = []
+
+		# Nested iteration. Data will be fed only for unique location names. If not, the data object itself will be found and updated.
+		locations7.each do |object|
+			unless unique_names7.include?(object[:name])
+				data7 << {name: object[:name], total: object[:rating], frequency: 1}
+				unique_names7 << object[:name]
+			else
+				for i in data7
+					if i[:name] == object[:name]
+						i[:total] += object[:rating]
+						i[:frequency] += 1
+					end
+				end
+			end
+		end
+
+		warhead_seven= []
+		data7.each do |object|
+			warhead_seven << {name: object[:name], avg: (object[:total].to_f / object[:frequency]).round(1)}
+		end
+
+		missile = []
+		missile << warhead_seven
+		missile << warhead_thirty
 
 		respond_to do |format|
 			format.html
-			format.json {render :json => warhead.to_json}
+			format.json {render :json => missile.to_json}
 		end
-
-
-		# puts '---------------------'
-		# puts '---------------------'
-		# puts all_trips_within_30.count
-		# puts '---------------------' 
-		# puts '---------------------' 
 
 	end
 end

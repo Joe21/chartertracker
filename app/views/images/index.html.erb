@@ -1,13 +1,17 @@
-<h3><%= current_user.images.count %></h3>
 <div>
 	<% if current_user.images.count > 0 %>
 		<% @images.each do |image| %>
-			<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
-			<%= link_to "remove", image, :method => :delete %>
+				<div class="thumb-container three columns">
+					<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
+					<%= link_to "remove", image, :method => :delete %>
+				</div>
 		<% end %>
 	<% else %>
 		You have no images
 	<% end %>
+</div><br />
+<div class="clearfix"></div>
+<br />
+<div>
+	<%= button_to "Add Image", new_image_path, method: 'get' %>
 </div>
-
-<%= link_to "Add Image", new_image_path %>

@@ -6,7 +6,7 @@
 	<h3><%= location.name %>
 		<div class="button-container"><%= button_to "Add Trip", new_trip_path(location.id), method: "get"%>
 		</div></h3>
-	Total Number of Trips: <%= (location.trips & current_user.trips).count %><br />
+	Trips to <%= location.name %>: <%= (location.trips & current_user.trips).count %><br />
 
 
 	

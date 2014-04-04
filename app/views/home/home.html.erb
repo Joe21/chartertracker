@@ -1,19 +1,27 @@
-<h1 id="welcome">Welcome to Charter Tracker <%= current_user.name %>!</h2>
+<h1 id="welcome">Welcome to CharterTracker <%= current_user.name %>!</h2>
 
 <div id="leaderboards">
 	<h2 class="title">Leaderboard</h2>
-		<p class="center-me">Get on the leaderboard to share your gallery!</p><br />
+	<p class="center-me">Get on the leaderboard to share your gallery!</p><br />
 
 	<% @topten.each do |user| %>
-	<strong>Name:</strong> <%= user.name %><br />
-	<strong>Trips Contributed: </strong><%= user.trips_counter %><br />
-	<br />
-		<% user.images.each do |image| %>
-		<div class="thumb-container three columns">
-			<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %>
+		<div class="left-me">
+			<span class="bold-me">Name:</span> <%= user.name %>
 		</div>
-		<% end %>
-	<hr>
+		<div class="right-me">
+			<span class="bold-me">Trips Contributed: </span><%= user.trips_counter %><br />
+		</div>
+		<br />
+			<% if user.images.count > 0 %>
+				<% user.images.each do |image| %>
+					<div class="thumb-container three columns">
+						<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %>
+					</div>
+				<% end %>
+			<% else %>
+			<p class="nuub-container"><em><%= user.name %>'s gallery is empty...what a nuub!<em></p>
+			<% end %>
+		<hr>
 	<% end %>
 </div>
 
