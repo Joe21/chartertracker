@@ -1,0 +1,8 @@
+<h2 class="title">Admin Mode</h2>
+
+<% @user.images.each do |image| %>
+	<div class="thumb-container three columns">
+		<%= image_tag(image.data_url(:thumb).to_s) %>
+		<%= link_to "remove", image, :method => :delete %>
+	</div>
+<% end %>

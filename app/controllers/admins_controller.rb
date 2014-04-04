@@ -12,7 +12,33 @@ class AdminsController < ApplicationController
 
 	def index
 		@pending_locations = Location.where(verified: false)
-		@test = is_admin?
+		@all_users = User.all
+		@all_users.sort! { |a, b| a.name <=> b.name }
 	end
 
+	def approve
+		location = Location.find(params[:id])
+		location.update_attribute(:verified, true)
+		location.save!
+
+		redirect_to admins_path
+	end
+
+	def reject
+		location = Location.find(params[:id])
+		location.destroy
+
+		redirect_to admins_path
+	end
+
+	def images
+		@user = User.find(params[:id])
+	end
+
+	def delete_image
+		image = Image.find(params[:id])
+		image.destroy
+
+		redirect_to admins_path
+	end
 end

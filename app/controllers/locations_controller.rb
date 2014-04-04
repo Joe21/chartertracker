@@ -4,6 +4,8 @@ class LocationsController < ApplicationController
 	def index
 		# Set a variable for all approved locations that a user can add.
 		@approved_locations = Location.where(verified: true) - current_user.locations
+
+		@pending_locations = Location.where(verified: false)
 	
 		# Current user locations sorted alphabetically
 		user = User.find(current_user)
@@ -15,7 +17,7 @@ class LocationsController < ApplicationController
 	end
 
 	def create
-		location = Location.create(params[:location])
+		Location.create(params[:location])
 		redirect_to locations_path
 	end
 

@@ -1,5 +1,6 @@
 <h1 class="title">Trips Menu</h1>
-<p class="center-me">Total Number of Trips: <%= current_user.trips.count %></p>
+<p>Use CharterTracker to log and rate your fishing trips.</p><br />
+<p><span class="bold-me">Trips Recorded: </span><%= current_user.trips.count %></p><br />
 
 <% @my_locations.each do |location| %>
 

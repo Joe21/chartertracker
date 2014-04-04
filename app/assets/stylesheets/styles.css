@@ -120,7 +120,6 @@ body {
 }
 
 /* Trips view */
-
 table, th, tr, td {
 	border: 1px solid black;
 	padding: 0 5px;
@@ -143,12 +142,17 @@ tr:nth-child(odd) {
 .my-locations {
 	border-bottom: 1px solid #ffffff;
 }
+
 .remove-button-container {
 	display: inline-block;
 	margin-left: 20px;
 }
 
 /* Images view */
+img {
+	border: 1px solid #000000;
+}
+
 .circle {
 	border: 1px solid #ffffff;
 	border-radius: 20px;
@@ -157,6 +161,11 @@ tr:nth-child(odd) {
 	height: 20px;
 	text-align: center;
 	width: 20px;
+}
+
+.fo-show-container {
+	margin: auto;
+	width: 680px;
 }
  
 input[type="file"] {
@@ -181,6 +190,12 @@ input[type="file"] {
   shape-rendering: crispEdges;
 }
 
+/* Admins view */
+#user-list li {
+	border-bottom: 1px solid black;
+	padding: 2px;
+}
+
 /* Misc */
 .bold-me {
 	font-weight: bold;
@@ -200,6 +215,10 @@ input[type="file"] {
 
 .font-gentium {
 	font-family: 'Gentium Book Basic', serif;
+}
+
+.inline-me {
+	display: inline;
 }
 
 .left-me {

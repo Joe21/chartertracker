@@ -1,10 +1,8 @@
 <h1 class="title">Locations Menu</h1>
 
 <p>
-	<em>
-		Locations are based on ports of departure for charter fishing trips.<br />
-		Captains need not worry, CharterTracker will <span class="bold-me">NEVER</span> track your coordinates and will <span class="bold-me">NEVER</span> steal your spots!<br />
-	</em>
+	Locations are based on ports of departure for charter fishing trips.<br />
+	<em>Captains need not worry, CharterTracker will <span class="bold-me">NEVER</span> track your coordinates and will <span class="bold-me">NEVER</span> steal your spots!</em><br />
 </p>
 <br />
 
@@ -23,21 +21,27 @@
 <hr>
 <h3>New Locations</h3>
 
-Submit a new location for admin approval
-	<div class="button-container">
-		<%= button_to "New", new_location_path, method: 'get' %>
-	</div><br />
+<div class="inline-me">- Submit a new location for admin approval</div>
+<div class="button-container">
+	<%= button_to "New", new_location_path, method: 'get' %>
+</div><br />
+
+<% if @pending_locations.count > 0 %>
+	<p>- Locations Pending Admin Approval</p>
+	<% @pending_locations.each do |location| %>
+		<%= location.name %><br />
+	<% end %><br />
+<% end %>
 
 <% if @approved_locations.count != 0 %>
-	<div>Or add the following approved location(s) to your account
-		<ul>
-			<% @approved_locations.each do |location| %>
-			<li>• <%= location.name %>
-				<div class="button-container">
-					<%= button_to "Add", add_to_my_location_path(location.id), :method => :post %>
-				</div>
-			</li>
-			<% end %>
-		</ul>
-	</div>
+	<p>- Add the following approved location(s) to your account</p>
+	<ul>
+		<% @approved_locations.each do |location| %>
+		<li><%= location.name %>
+			<div class="button-container">
+				<%= button_to "Add", add_to_my_location_path(location.id), :method => :post %>
+			</div>
+		</li>
+		<% end %>
+	</ul>
 <% end %>

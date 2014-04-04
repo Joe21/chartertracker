@@ -1,12 +1,33 @@
-<div>
-	<h3>Locations Pending: <%= @pending_locations.count %></h3>
-	<% if @pending_locations.count > 0 %>
-		<ul>
-		<% @pending_locations.each do |location| %>
-				<li><%= location.name %></li>
-			<% end %>
-		</ul>
-	<% end %>
-</div>
+<h2 class="title">Admins Menu</h2>
 
-<h1><%= @test %></h1>
+<span class="bold-me">Locations Pending:</span><%= @pending_locations.count %><br />
+
+<ul>
+	<% @pending_locations.each do |location| %>
+		<li>
+			• <%= location.name %>
+			<div class="button-container"><%= button_to "Approve", approve_path(location.id), method: 'post' %></div>
+			<div class="button-container"><%= button_to "Reject", reject_path(location.id), method: 'post' %></div>
+		</li>
+	<% end %>
+</ul><br />
+
+<span class="bold-me">Total Users: </span><%= @all_users.count %><br />
+
+<ul id="user-list">
+	<% @all_users.each do |user| %>
+		<li>
+			<span class="bold-me">Name: </span><%= user.name %><br />
+			<span class="bold-me">Email: </span><%= user.email %><br />
+			<span class="bold-me">Admin: </span><%= user.admin %><br />
+			<span class="bold-me">Image Count: </span><%= user.images.count %><br />
+			<div class="button-container">
+				<%= button_to "Images", image_police_path(user.id), method: 'get' %>
+			</div>
+			<br />
+		</li>
+	<% end %>
+</ul>
+
+
+

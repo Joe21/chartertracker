@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
 
 	def create
 		response = params[:image]
-		if (response == nil || current_user.images.count == 5)
+		if (response == nil || current_user.images.count == 10)
 			render :error
 		else
 			image = Image.create(params[:image])
