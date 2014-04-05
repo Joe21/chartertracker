@@ -52,7 +52,7 @@
 ================================================== */
 	body {
 		background: #FFFFFF;
-		font: 16px "Roboto", sans-serif;
+		font: 17px 'Roboto', sans-serif;
 		color: #000000;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -62,7 +62,7 @@
 /* #Typography
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
-		color: #181818;
+		color: #000000;
 		font-family: 'Playball', cursive;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
@@ -72,14 +72,14 @@
 	h4 { font-size: 21px; line-height: 30px; margin-bottom: 5px; }
 	h5 { font-size: 17px; line-height: 24px; }
 	h6 { font-size: 14px; line-height: 21px; }
-	.subheader { color: #777; }
+	.subheader { color: #000000; }
 
 	p { margin: 0 }
 	p img { margin: 0; }
-	p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+	p.lead { font-size: 21px; line-height: 27px; color: #000000;  }
 
 	em { font-style: italic; }
-	strong { font-weight: bold; color: #333; }
+	strong { font-weight: bold; color: #FFFFFF; }
 	small { font-size: 80%; }
 
 /*	Blockquotes  */
@@ -94,9 +94,9 @@
 
 /* #Links
 ================================================== */
-	a, a:visited { color: blue; text-decoration: underline; outline: 0; }
+	a, a:visited { color: #00008F; font-family: 'roboto' sans-serif; text-decoration: underline; outline: 0; }
 	a { text-decoration: none; }
-	a:hover, a:focus { color: #000; }
+	a:hover, a:focus { color: #FF3300; }
 	p a, p a:visited { line-height: inherit; }
 
 
@@ -225,7 +225,7 @@
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
-		font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font: 14px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #000000;
 		margin: 0;
 		width: 210px;
@@ -251,8 +251,9 @@
 	label,
 	legend {
 		display: block;
+		font-family: 'roboto' sans-serif;
 		font-weight: bold;
-		font-size: 14px;  }
+		font-size: 14px; }
 	select {
 		width: 220px; }
 	input[type="checkbox"] {

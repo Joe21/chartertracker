@@ -1,11 +1,14 @@
-<h2 class="title">Admin Mode</h2>
-<p><em>Admins should only delete an image if deemed necessary per their discretion.<br />Deleting another user's image will route you back to <span class="bold-me">your</span> gallery.</em></p><br />
+<div>
+	<h1 class="title">Admin Mode</h1>
+	<p>
+		<em>Admins should only delete an image if deemed necessary per their discretion.</em>
+	</p>
+	<br />
 
-<br />
-
-<% @user.images.each do |image| %>
-	<div class="thumb-container three columns">
-		<%= image_tag(image.data_url(:thumb).to_s) %>
-		<%= link_to "remove", image, :method => :delete %>
-	</div>
-<% end %>
+	<% @user.images.each do |image| %>
+		<div class="thumb-container three columns">
+			<%= image_tag(image.data_url(:thumb).to_s) %>
+			<%= link_to "remove", image, :method => :delete %>
+		</div>
+	<% end %>
+</div>

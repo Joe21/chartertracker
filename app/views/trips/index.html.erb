@@ -1,16 +1,15 @@
 <h1 class="title">Trips Menu</h1>
 <p>Use CharterTracker to log and rate your fishing trips.</p><br />
-<p><span class="bold-me">Trips Recorded: </span><%= current_user.trips.count %></p><br />
+<p>Trips Recorded: <%= current_user.trips.count %></p><br />
 
 <% @my_locations.each do |location| %>
 
 	<h3><%= location.name %>
 		<div class="button-container"><%= button_to "Add Trip", new_trip_path(location.id), method: "get"%>
-		</div></h3>
+		</div>
+	</h3>
 	Trips to <%= location.name %>: <%= (location.trips & current_user.trips).count %><br />
 
-
-	
 	<% if (location.trips & current_user.trips).count > 0 %>
 		<% (location.trips & current_user.trips).each do |trip| %>
 			<table class="trips-table">	
@@ -57,7 +56,7 @@
 			<div class="button-container">
 				<%= button_to "Delete Trip", delete_trip_path(trip.id), method: "post"  %>
 			</div>
-		<br />
+			<div class="hr-white"><hr></div>
 		<br />
 		<% end %>
 	<% end %>

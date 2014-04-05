@@ -1,20 +1,23 @@
-<h2 class="title">My Gallery</h2>
-<p>Store up to 10 images (for now)...</p><br />
+<div>
+	<h1 class="title">My Gallery</h1>
+	<p>
+		Store up to 10 images (for now)...
+	</p><br />
 
-<div>
-	<% if current_user.images.count > 0 %>
-		<% @images.each do |image| %>
-				<div class="thumb-container three columns">
-					<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
-					<%= link_to "remove", image, :method => :delete %>
-				</div>
+	<div>
+		<% if current_user.images.count > 0 %>
+			<% @images.each do |image| %>
+					<div class="thumb-container three columns">
+						<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %><br />
+						<%= link_to "remove", image, :method => :delete %>
+					</div>
+			<% end %>
+		<% else %>
+			You have no images
 		<% end %>
-	<% else %>
-		You have no images
-	<% end %>
-</div><br />
-<div class="clearfix"></div>
-<br />
-<div>
+	</div><br />
+	
+	<div class="clearfix"></div><br />
 	<%= button_to "Add Image", new_image_path, method: 'get' %>
+	
 </div>

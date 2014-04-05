@@ -1,17 +1,22 @@
-<h2 class="title">Tracker</h2>
-<p class="center-me"><em>Avg user trip ratings for all approved locations within the past <span id="day-number">30</span> days.</em></p><br />
+<div>
+	<h1 class="title">Tracker</h1>
+	<p class="center-me">
+		Avg user trip ratings within the past <span id="day-number">30</span> days.
+	</p><br />
 
-<svg class="chart" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
-<div class="button-container">
-	<button id="button-seven">7 days</button>
-	<button id="button-thirty">30 days</button>
+	<svg class="chart" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid"></svg>
+	<div class="button-container">
+		<button id="button-seven">7 days</button>
+		<button id="button-thirty">30 days</button>
+	</div>
 </div>
+
 
 <script>
 // Establish global variable to store json values
 var data;
 
-// Send ajax GET request to server with a callback function to render the chart
+// Send ajax GET requests to server with a callback function to render the chart
 function getDataThirty() {
 	var request = $.ajax({
 	  url: '/tracker',

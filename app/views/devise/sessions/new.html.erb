@@ -1,9 +1,10 @@
 <div id="sign-in-container" class="sixteen columns">
+	
 	<div id="sign-in-form-container">
-		<h2>CharterTracker</h2>
-		<p><em>Find the hottest ports for charter fishing trips without any flamewars.</em></p><br />
-		<br />
-		<h3>Sign in</h3>
+		<h1>CharterTracker</h1>
+		<p>Find the hottest ports for charter fishing trips without any flamewars</p><br />
+		
+		<h3>Sign In</h3>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 			<%= f.label :email %>
 			<%= f.email_field :email, :autofocus => true %><br />
@@ -13,18 +14,20 @@
 
 			<%= f.submit "Sign in" %>
 		<% end %>
-		
 		<%= render "devise/shared/links" %><br />
-		<br />
-		<br />
 	</div>
+	
 	<hr>
-	<div id="sign-in-visitor-container">
+	
+	<div class="center-me">
 		<h2>Quick Peak</h2>
 		<p>Check out the latest trip ratings by port</p><br />
 		<%= button_to "Chart Only", chart_path, method: :get %>	
 	</div>
+
 </div>
+
 <div id="tag">
+	<%= link_to "New to CharterTracker?", about_path %>
 	<em>Powered by The Brute Awesomeness of Joe Jung</em>
 </div>

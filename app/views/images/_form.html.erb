@@ -1,12 +1,12 @@
 <div id="image-form">
 	<%= form_for @image, :html => { :multipart => true } do |f| %>
 		<%= f.label "Image" %><br />
-		<div class="circle">1</div>
+		<span class="circle">1</span>
 		Click To Choose File<br />
 		<%= f.file_field :data %><br />
 		<hr>
-		<div class="circle">2</div>
+		<span class="circle">2</span>
 		Submit<br />
 		<%= f.submit %>
-		<% end %>
+	<% end %>
 </div>

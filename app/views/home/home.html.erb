@@ -1,32 +1,28 @@
-<h1 id="welcome">Welcome to CharterTracker <%= current_user.name %>!</h2>
+<h1 class="bold-me center-me">Welcome to CharterTracker <%= current_user.name %>!</h2>
 
-<div id="leaderboards">
+<div>
 	<h2 class="title">Leaderboard</h2>
-	<p class="center-me">Get on the leaderboard to share your gallery!</p><br />
+	<p class="center-me font-roboto">Get on the leaderboard to share your gallery!</p><br />
 
 	<% @topten.each do |user| %>
 		<div class="left-me">
-			<span class="bold-me">Name:</span> <%= user.name %>
+			<span class="minor-title">Name:</span> <%= user.name %>
 		</div>
+
 		<div class="right-me">
-			<span class="bold-me">Trips Contributed: </span><%= user.trips_counter %><br />
-		</div>
+			<span class="minor-title">Trips Contributed: </span><%= user.trips_counter %><br />
+		</div><br />
 		<br />
+
 			<% if user.images.count > 0 %>
 				<% user.images.each do |image| %>
-					<div class="thumb-container three columns">
+					<div class="center-me three columns">
 						<%= link_to image_tag(image.data_url(:thumb).to_s), image_path(image) %>
 					</div>
 				<% end %>
 			<% else %>
-			<p class="nuub-container"><em><%= user.name %>'s gallery is empty...what a nuub!</em></p>
+				<p class="center-me"><%= user.name %>'s gallery is empty</p>
 			<% end %>
 		<hr>
 	<% end %>
 </div>
-
-<script>
-	$(function() {
-
-	})
-</script>

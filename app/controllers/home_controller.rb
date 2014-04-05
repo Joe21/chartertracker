@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!
+	before_filter :authenticate_user!, except: :about
 
 	def home
 		# [Validation: This process checks for new users, if so, all verified locations are linked to their account]
