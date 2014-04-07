@@ -1,5 +1,6 @@
 class TrackerController < ApplicationController
 	
+	# Action used to render the chart view.
 	def chart
 		###########################################
 		# Arming json warhead for past 30 days
@@ -75,10 +76,12 @@ class TrackerController < ApplicationController
 			warhead_seven << {name: object[:name], avg: (object[:total].to_f / object[:frequency]).round(1)}
 		end
 
+		# Missile is armed with both warheads in an array.
 		missile = []
 		missile << warhead_seven
 		missile << warhead_thirty
 
+		# Server listens for and responds to json requests by rendering the missile array in json format.
 		respond_to do |format|
 			format.html
 			format.json {render :json => missile.to_json}

@@ -5,13 +5,8 @@
 	<p class="center-me font-roboto">Get on the leaderboard to share your gallery!</p><br />
 
 	<% @topten.each do |user| %>
-		<div class="left-me">
-			<span class="minor-title">Name:</span> <%= user.name %>
-		</div>
-
-		<div class="right-me">
-			<span class="minor-title">Trips Contributed: </span><%= user.trips_counter %><br />
-		</div><br />
+		<span class="big-font">Name:</span> <%= user.name %><br />
+		<span class="big-font">Trips Contributed: </span><%= user.trips_counter %><br />
 		<br />
 
 			<% if user.images.count > 0 %>

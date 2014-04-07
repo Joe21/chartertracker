@@ -16,24 +16,27 @@
 // Establish global variable to store json values
 var data;
 
-// Send ajax GET requests to server with a callback function to render the chart
+// Function to send ajax GET requests to server with a callback function to render the chart
 function getDataThirty() {
 	var request = $.ajax({
 	  url: '/tracker',
 	  method: 'GET',
 	  dataType: 'json',
 	  success: function(missile) {
+	  	// Mutates the global variable to equal warhead_30 (2nd element in the missile array)
 	    data = missile[1];
 	    createChart()
 	  }
 	});
 }
 
+// Function to send ajax GET requests to server with a callback function to render the chart
 function getDataSeven() {
 	var request = $.ajax({
 	  url: '/tracker',
 	  method: 'GET',
 	  dataType: 'json',
+	  // Mutates the global variable to equal warhead_7 (1st element in the missile array)
 	  success: function(missile) {
 	    data = missile[0];
 	    createChart()
@@ -41,7 +44,7 @@ function getDataSeven() {
 	});
 }
 
-// Constructor function creates the chart. Note that it must be called after the json data is received.
+// Constructor function creates the chart. Note that it must be called after the json data is received to capture the appropriate dimensions for domain attribute.
 function createChart() {
 	var margin = { top: 20, right: 30, bottom: 30, left: 40},
 	  width = 960 - margin.left - margin.right,
@@ -94,13 +97,13 @@ function createChart() {
 	    .attr("y", function(d) { return y(d.avg); })
 	    .attr("height", function(d) { return height - y(d.avg); });
 
-	// Function used to grab the value from the appropriate object key
+	// Function used to grab the value from the appropriate object key (average rating)
 	function type(d) {
 	  d.avg = +d.avg;
 	  return d;
 	}
 
-	// Make chart responsive, occurs on window resize.
+	// Make chart responsive on window resize.
 	var aspect = 960 / 500,
     chart = $(".chart");
 
@@ -124,10 +127,12 @@ function clearChart30() {
 	$('#day-number').html('30')
 }
 
-// Initiates on windowload
+// On windowload
 $(function() {
+	// Calls the function to create and render the 30-day chart.
 	getDataThirty();
 
+	// Create event handlers for the chart buttons.
 	$('#button-seven').on('click', clearChart7);
 	$('#button-thirty').on('click', clearChart30);
 })

@@ -8,7 +8,4 @@ CarrierWave.configure do |config|
   config.cache_dir = "#{Rails.root}/tmp/uploads"                  # To let CarrierWave work on heroku
  
   config.fog_directory    = ENV['CTBUCKET']
-
-  # config.s3_access_policy = :public_read                        # Generate http:// urls. Defaults to :authenticated_read (https://)
-  # config.fog_host         = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
 end 

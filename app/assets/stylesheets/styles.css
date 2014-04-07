@@ -160,11 +160,6 @@ tr:nth-child(odd) {
 	text-align: center;
 	width: 20px;
 }
-
-.fo-show-container {
-	margin: auto;
-	width: 680px;
-}
  
 input[type="file"] {
 	border: 1px solid grey;
@@ -195,6 +190,10 @@ input[type="file"] {
 }
 
 /* Misc */
+.big-font {
+	font-size: 1.2em;
+}
+
 .bigger-font {
 	font-size: 1.3em;
 }
