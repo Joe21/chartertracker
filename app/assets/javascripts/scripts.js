@@ -1,3 +1,1 @@
-$(function() {
-
-});
+// JS updates to come later
