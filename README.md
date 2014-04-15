@@ -25,7 +25,7 @@ The Beta version is currently deployed via heroku apps and can be found at [http
 * jQuery
 * Skeleton
 * responsive d3
-* Secured image storage on Amazon ec2
+* Secured image storage on Amazon S3
 * Deployed on Heroku
 * Supports admin accounts with exclusive functionality
-* New Relic App Performance Monitoring / reduce dyno idle time.
+* New Relic App Performance Monitoring w/ Scheduler to reduce dyno idle time.
